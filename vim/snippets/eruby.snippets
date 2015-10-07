@@ -1,0 +1,76 @@
+############
+# Embedded Ruby(.erb) Snippets
+############
+
+snippet content
+	<% content_for :${1:head} do %>
+		${2}
+	<% end %>
+snippet render
+	<%= render '${1}' %>
+snippet jit
+	<%= javascript_include_tag '${1}' %>
+snippet bp
+	<% binding.pry %>
+snippet lt
+	<%= link_to '${1:name}', ${2:dest} %>
+snippet %
+	<% ${1} %>
+snippet =
+	<%= ${1} %>${2}
+snippet end
+	<% end %>${1}
+
+# Forms
+snippet ff
+	<% form_for @${1:model} do |f| %>
+snippet label
+	<label class='${1}'>${2}</label>
+snippet button
+	<button type='${1:submit}' class='${2:btn}'>${3:text}</button>
+snippet i18
+	I18n.t('${1:type.key}')${2}
+snippet input
+	<input type='${1:type}' class='${2:btn}' placeholder='${3:placeholder}'>${4:text}</button>
+snippet it
+	<%= image_tag '${1}'${2} %>
+
+# HTML
+## Headers
+snippet h1
+	<h1>${1}</h1>
+snippet h1.
+	<h1 class="${1}">${2}</h1>
+snippet h1#
+	<h1 id="${1}">${2}</h1>
+snippet h2
+	<h2>${1}</h2>
+snippet h2.
+	<h2 class="${1}">${2}</h2>
+snippet h2#
+	<h2 id="${1}">${2}</h2>
+snippet h3
+	<h3>${1}</h3>
+snippet h3.
+	<h3 class="${1}">${2}</h3>
+snippet h3#
+	<h3 id="${1}">${2}</h3>
+snippet h4
+	<h4>${1}</h4>
+snippet h4.
+	<h4 class="${1}">${2}</h4>
+snippet h4#
+	<h4 id="${1}">${2}</h4>
+snippet h5
+	<h5>${1}</h5>
+snippet h5.
+	<h5 class="${1}">${2}</h5>
+snippet h5#
+	<h5 id="${1}">${2}</h5>
+snippet h6
+	<h6>${1}</h6>
+snippet h6.
+	<h6 class="${1}">${2}</h6>
+snippet h6#
+	<h6 id="${1}">${2}</h6>
+

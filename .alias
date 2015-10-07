@@ -1,0 +1,78 @@
+##### Aliases #######
+alias subl='/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl'
+
+# Postgres
+alias pgstart="pg_ctl -D /usr/local/var/postgres -l logfile start"
+alias pgstop="pg_ctl -D /usr/local/var/postgres stop"
+
+# Git
+alias gs="git status"
+alias gst="git stash"
+alias gmt="git mergetool -t opendiff"
+alias glog='git log --date-order --pretty="format:%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset"'
+alias glg='glog --graph'
+alias gpob='git push origin $(current_branch)'
+
+# Unix
+alias la="ls -la"
+alias freq='cut -f1 -d" " ~/.bash_history | sort | uniq -c | sort -nr | head -n 30' # Most used commands
+alias dotfiles="mvim /Users/rianrainey/Dropbox\ \(Personal\)/Personal/sharedConfiguration/dotfiles"
+alias boxen="~/Code/our-boxen/script/boxen"
+alias vimboxen="vim ~/Code/our-boxen/"
+
+## Doesn't require '\' in command like: rake college:create\[demo\]
+## Can just say rake college:create[demo]
+alias rake="noglob bundle exec rake"
+alias rz="source ~/.zshrc"
+alias hosts="sudo vi /etc/hosts"
+alias vhosts="sudo vi /etc/apache2/extra/httpd-vhosts.conf"
+
+# Rspec
+alias rss="rspec --format Fuubar --color spec"
+
+# Rails
+alias rs="rails server"
+alias rc="rails console"
+alias rr="rake routes"
+alias guard="bundle exec guard"
+alias rdbm="rake db:migrate"
+alias rdbtp="rake db:test:prepare"
+alias rdbd="rake db:drop"
+alias rdbs="rake db:seed"
+alias rdbc="rake db:create"
+alias rdbr="rake db:rollback"
+
+# MySQL
+alias mysql="/opt/boxen/homebrew/bin/mysql -u root"
+
+# SSH
+alias sshpearlpoint="ssh pearlpoint.org@s161991.gridserver.com"
+alias sshbopr="ssh centre@wdev.tbpr.org"
+
+# Vagrant
+alias vssh="vagrant ssh"
+alias vup="vagrant up"
+alias vhalt="vagrant halt"
+
+# Tmux
+alias rtmux="tmux source-file ~/.tmux.conf"
+alias ta="tmux attach-session -t"
+alias tc="tmux new-session -s"
+alias tl="tmux list-sessions"
+alias tk="tmux kill-session -t"
+alias tmate-ssh="tmate show-messages"
+
+# Vim Snippets
+alias snippets="mvim ~/.vim/bundle/mysnippets/snippets"
+
+# RVM
+function gemu(){
+  gem uninstall $1
+}
+function gemi(){
+  gem install $1
+}
+function gembuild(){
+  gem build $1
+}
+

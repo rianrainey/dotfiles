@@ -1,0 +1,17 @@
+# Ack is a command line tool that is better than Grep, betterthangrep.com
+
+# Always sort the files
+--sort-files
+
+# Always use color
+--color
+
+# Make sure Ack knows how to search common filetypes used in Rails projects
+--type-add=css=scss
+--type-add=js=hbs
+--type-add=js=coffee
+--type-set=markdown=.md,.markdown
+
+# Ignore
+--ignore-dir=log
+--ignore-dir=tmp
