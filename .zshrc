@@ -8,7 +8,8 @@ export EDITOR='mvim'
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="agnoster"
+ZSH_CUSTOM=$HOME/$CONFIG_PATH/.oh-my-zsh-customizations
+ZSH_THEME="rr-agnoster"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
