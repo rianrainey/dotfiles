@@ -1,5 +1,4 @@
 ##### Aliases #######
-alias subl='/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl'
 
 # Postgres
 alias pgstart="pg_ctl -D /usr/local/var/postgres -l logfile start"
@@ -17,8 +16,10 @@ alias gpob='git push origin $(current_branch)'
 alias la="ls -la"
 alias freq='cut -f1 -d" " ~/.bash_history | sort | uniq -c | sort -nr | head -n 30' # Most used commands
 alias dotfiles="mvim /Users/rianrainey/Dropbox\ \(Personal\)/Personal/sharedConfiguration/dotfiles"
+alias cddotfiles="cd /Users/rianrainey/Dropbox\ \(Personal\)/Personal/sharedConfiguration/dotfiles"
 alias boxen="~/Code/our-boxen/script/boxen"
 alias vimboxen="vim ~/Code/our-boxen/"
+alias mkcd='function _mkcd() { mkdir -p $1; cd $1; }; _mkcd'
 
 ## Doesn't require '\' in command like: rake college:create\[demo\]
 ## Can just say rake college:create[demo]
@@ -60,6 +61,7 @@ alias ta="tmux attach-session -t"
 alias tc="tmux new-session -s"
 alias tl="tmux list-sessions"
 alias tk="tmux kill-session -t"
+alias tr='function rename(){ tmux rename-session -t $1 $2; }; rename'
 alias tmate-ssh="tmate show-messages"
 
 # Vim Snippets

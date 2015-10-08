@@ -8,7 +8,7 @@ export EDITOR='mvim'
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="bullet-train"
+ZSH_THEME="agnoster"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -28,10 +28,6 @@ source $HOME/$CONFIG_PATH/.alias
 LSCOLORS="BxCxcxdxbxegedabagacad"
 export LSCOLORS
 
-# Homebrew path
-#homebrew=/usr/local/bin:/usr/local/sbin
-#export PATH=$homebrew:$PATH
-
 # Boxen
 source /opt/boxen/env.sh
 
@@ -39,3 +35,6 @@ source /opt/boxen/env.sh
 source /opt/boxen/homebrew/share/zsh/site-functions/_aws
 
 export TERM="xterm-256color"
+
+# RVM Path
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
