@@ -1,4 +1,5 @@
 ##### Aliases #######
+alias vim="/opt/boxen/homebrew/Cellar/vim/7.4.884/bin/vim"
 
 # Postgres
 alias pgstart="pg_ctl -D /usr/local/var/postgres -l logfile start"
