@@ -1,3 +1,6 @@
+# Nathan Parry
+# https://git.innova-partners.com/nparry/dotfiles/blob/master/Rakefile
+
 def link_files(suffix, suffix_replacement, link_basedir, link_prefix)
   suffix_replacement = ".#{suffix_replacement}" unless suffix_replacement.empty?
   Dir.glob("**/*.#{suffix}").each do |file|
@@ -5,7 +8,7 @@ def link_files(suffix, suffix_replacement, link_basedir, link_prefix)
     link_file = File.join(link_basedir, link_prefix + File.basename(file).sub(".#{suffix}", suffix_replacement))
 
     if File.exists?(link_file) && !File.symlink?(link_file)
-      abort("File #{link_file} already exists")
+      puts "File #{link_file} already exists"
     elsif File.symlink?(link_file)
       FileUtils.rm(link_file)
     end

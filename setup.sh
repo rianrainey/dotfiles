@@ -28,6 +28,7 @@ binaries=(
   mackup
   node
   python
+  rename
   tree
   wget
 )
@@ -127,3 +128,19 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 # Install Janus
 ##########################################################################
 #curl -L https://bit.ly/janus-bootstrap | bash # Uncomment if you need Janus
+
+##########################################################################
+# Link dotfiles to $HOME
+##########################################################################
+rake link
+
+##########################################################################
+# Install Powerline Fonts
+# https://github.com/powerline/fonts
+##########################################################################
+
+git clone https://github.com/powerline/fonts.git ~/Downloads/fonts
+cd ~/Downloads/fonts
+sh install.sh
+# Switch iTerm font to a Powerline Font (e.g. Meslo)
+source ~/.zshrc
