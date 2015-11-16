@@ -29,6 +29,7 @@ binaries=(
   node
   python
   rename
+  tmux
   tree
   wget
 )
@@ -39,9 +40,9 @@ brew install ${binaries[@]}
 echo "Brew cleaning..."
 brew cleanup
 
-######
+##########################################################################
 # Brew Casks
-######
+##########################################################################
 
 brew install caskroom/cask/brew-cask
 
@@ -89,6 +90,12 @@ echo "installing apps..."
 brew cask install --appdir="/Applications" ${apps[@]}
 
 #########################################################################
+# Tmate
+#########################################################################
+brew tap nviennot/tmate && \
+brew install tmate
+
+#########################################################################
 # Alfred
 # One thing you may notice if you're an Alfred user is that you cannot
 # actually launch these apps from Alfred because the actual location
@@ -96,18 +103,14 @@ brew cask install --appdir="/Applications" ${apps[@]}
 
 # To add this path to Alfred, you can run the following command:
 ##########################################################################
-
 brew cask alfred link
 
 ##########################################################################
 # Fonts
 ##########################################################################
-
-# fonts
 brew tap caskroom/fonts
 
 fonts=(
-
 )
 
 # install fonts
@@ -138,10 +141,10 @@ rake link
 # Install Powerline Fonts
 # https://github.com/powerline/fonts
 ##########################################################################
-
 git clone https://github.com/powerline/fonts.git ~/Downloads/fonts
 cd ~/Downloads/fonts
 sh install.sh
+
 # Switch iTerm font to a Powerline Font (e.g. Meslo)
 # TODO: Add ~/.vim to my dotfiles
 # Download http://ethanschoonover.com/solarized for iTerm. Load Preset.
