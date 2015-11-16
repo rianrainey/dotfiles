@@ -143,4 +143,6 @@ git clone https://github.com/powerline/fonts.git ~/Downloads/fonts
 cd ~/Downloads/fonts
 sh install.sh
 # Switch iTerm font to a Powerline Font (e.g. Meslo)
+# TODO: Add ~/.vim to my dotfiles
+# Download http://ethanschoonover.com/solarized for iTerm. Load Preset.
 source ~/.zshrc
