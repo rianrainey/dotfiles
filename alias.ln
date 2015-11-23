@@ -1,5 +1,5 @@
 ##### Aliases #######
-alias vim="/opt/boxen/homebrew/Cellar/vim/7.4.884/bin/vim"
+alias be="bundle exec"
 
 # Postgres
 alias pgstart="pg_ctl -D /usr/local/var/postgres -l logfile start"
@@ -16,10 +16,8 @@ alias gpob='git push origin $(current_branch)'
 # Unix
 alias la="ls -la"
 alias freq='cut -f1 -d" " ~/.bash_history | sort | uniq -c | sort -nr | head -n 30' # Most used commands
-alias dotfiles="mvim /Users/rianrainey/Dropbox\ \(Personal\)/Personal/sharedConfiguration/dotfiles"
-alias cddotfiles="cd /Users/rianrainey/Dropbox\ \(Personal\)/Personal/sharedConfiguration/dotfiles"
-alias boxen="~/Code/our-boxen/script/boxen"
-alias vimboxen="vim ~/Code/our-boxen/"
+alias dotfiles="mvim ~/Code/dotfiles"
+alias cddotfiles="cd ~/Code/dotfiles"
 alias mkcd='function _mkcd() { mkdir -p $1; cd $1; }; _mkcd'
 
 ## Doesn't require '\' in command like: rake college:create\[demo\]

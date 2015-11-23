@@ -24,13 +24,17 @@ brew install findutils
 # Install binaries
 binaries=(
   ack
+  gpg
+  heroku
   hub
   mackup
   node
+  postgresql
   python
   rename
   tmux
   tree
+  vim
   wget
 )
 
@@ -63,6 +67,7 @@ apps=(
   flux
   firefox
   google-chrome
+  google-drive
   harvest
   hipchat
   iterm2

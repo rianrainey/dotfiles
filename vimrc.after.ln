@@ -18,18 +18,18 @@ endfunction
 
 " Setting VIM theme to the popular solarized theme
 syntax enable
-"set background=light
+set background=dark
 "let g:solarized_termtrans=1
 "let g:solarized_termcolors=256
 "let g:solarized_contrast="high"
 "let g:solarized_visibility="high"
-colorscheme codeschool
+colorscheme solarized
 "nnoremap <silent> <F9> :exec "color " .
 "    \ ((g:colors_name == "light") ? "twilight" : "light")<CR>
 
 " Ruler
 set colorcolumn=80
-highlight ColorColumn ctermbg=0 guibg=lightgrey
+highlight ColorColumn ctermbg=red ctermfg=white guibg=red
 
 let mapleader=','
 set autoread                "Reload files outside of vim
@@ -77,6 +77,20 @@ set foldlevel=1         "this is just what i use
 vmap <C-x> :!pbcopy<CR>
 vmap <C-c> :w !pbcopy<CR><CR>
 
+" Enable Mouse in Vim
+set mouse=a
+set ttymouse=xterm2
+
+" Cursor
+"" for iterm
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+"" For tmux
+let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
+let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+
 " ================ Plugins ========================
 " Fugitive
 nnoremap <silent> <leader>ga :Gwrite<CR>
@@ -102,7 +116,7 @@ if exists(":Tabularize")
 endif
 
 " prevent ri doc popup
-autocmd FileType ruby,eruby set noballooneval
+" autocmd FileType ruby,eruby set noballooneval
 
 " SparkUp
 let g:sparkupExecuteMapping = '<c-y>'

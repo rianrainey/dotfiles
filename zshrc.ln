@@ -40,3 +40,19 @@ export TERM="xterm-256color"
 
 # RVM Path
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+###############################################################################
+# CMM
+###############################################################################
+
+# Python - virtualenvwrapper
+# https://git.innova-partners.com/cmm/snake_charming/blob/master/DEVELOPMENT.md#database-access-homebrew-setup
+if which brew >/dev/null; then
+  VIRTUALENVWRAPPER=$(brew --prefix)/bin/virtualenvwrapper.sh
+  if [ -x $VIRTUALENVWRAPPER ]; then
+    export WORKON_HOME=$HOME/.virtualenvs
+    export PROJECT_HOME=$HOME/src
+    mkdir -p $WORKON_HOME
+    source $VIRTUALENVWRAPPER
+  fi
+fi
