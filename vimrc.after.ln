@@ -29,7 +29,7 @@ colorscheme solarized
 
 " Ruler
 set colorcolumn=80
-highlight ColorColumn ctermbg=red ctermfg=white guibg=red
+highlight ColorColumn ctermbg=red ctermfg=white guibg=red guifg=white
 
 let mapleader=','
 set autoread                "Reload files outside of vim
@@ -78,8 +78,8 @@ vmap <C-x> :!pbcopy<CR>
 vmap <C-c> :w !pbcopy<CR><CR>
 
 " Enable Mouse in Vim
-set mouse=a
-set ttymouse=xterm2
+"set mouse=a
+"set ttymouse=xterm2
 
 " Cursor
 "" for iterm
