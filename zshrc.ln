@@ -20,7 +20,6 @@ plugins=(git osx)
 CONFIG_PATH=$HOME/Code/dotFiles
 
 source $ZSH/oh-my-zsh.sh
-unsetopt correct
 
 # Load all my custom aliases
 source $CONFIG_PATH/alias.ln

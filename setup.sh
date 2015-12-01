@@ -24,6 +24,7 @@ brew install findutils
 # Install binaries
 binaries=(
   ack
+  ag
   gpg
   heroku
   hub
