@@ -32,6 +32,7 @@ binaries=(
   node
   postgresql
   python
+  reattach-to-user-namespace # Fix for tmux copy-paste
   rename
   tmux
   tree
@@ -76,6 +77,7 @@ apps=(
   mailplane
   monolingual
   notational-velocity
+  pg-commander
   sequel-pro
   sketch
   skype

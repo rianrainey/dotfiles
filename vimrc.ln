@@ -70,6 +70,7 @@ set ttymouse=xterm2 " More mouse control
 set tabstop=4
 set shiftwidth=4    " when indenting with '>', use 4 spaces width
 set expandtab       " On pressing tab, insert 4 spaces
+set number
 
 let mapleader=','
 map <Leader>h :nohl<CR> " Turn off highlighting
@@ -133,3 +134,8 @@ au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 
 " Gist Vim
 let g:gist_post_private = 1
+
+"""""""""""""""
+" CoverMyMeds
+"""""""""""""""
+source ~/.workvimrc

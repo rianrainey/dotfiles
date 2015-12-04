@@ -53,8 +53,11 @@ set -g renumber-windows on
 # Increase scrollback limit
 set -g history-limit 10000
 
-## Enable Copy & Paste http://robots.thoughtbot.com/tmux-copy-paste-on-os-x-a-better-future ##
+#####
+# Enable Copy & Paste
+# http://robots.thoughtbot.com/tmux-copy-paste-on-os-x-a-better-future
 # Setup 'v' to begin selection as in Vim
+#####
 bind-key -t vi-copy v begin-selection
 bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
 
@@ -71,3 +74,9 @@ bind r source-file ~/.tmux.conf \; display-message "Config reloaded..."
 
 # Enable copy pasta
 #set-option -g default-command "reattach-to-user-namespace -l zsh"
+
+# Mouse mode
+set -g mode-mouse on
+set -g mouse-resize-pane on
+set -g mouse-select-pane on
+set -g mouse-select-window on
