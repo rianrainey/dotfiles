@@ -25,6 +25,7 @@ brew install findutils
 binaries=(
   ack
   ag
+  elixir
   gpg
   heroku
   hub
@@ -53,7 +54,6 @@ brew cleanup
 brew install caskroom/cask/brew-cask
 
 apps=(
-  1password
   airdisplay
   alfred
   anki
@@ -65,6 +65,7 @@ apps=(
   disk-inventory-x
   dropbox
   evernote
+  fiddler
   flash
   flux
   firefox
@@ -77,6 +78,7 @@ apps=(
   mailplane
   monolingual
   notational-velocity
+  pandora
   pg-commander
   sequel-pro
   sketch
@@ -111,7 +113,7 @@ brew install tmate
 
 # To add this path to Alfred, you can run the following command:
 ##########################################################################
-brew cask alfred link
+# brew cask alfred link
 
 ##########################################################################
 # Fonts
