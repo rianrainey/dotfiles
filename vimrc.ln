@@ -30,6 +30,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'ap/vim-css-color'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'elixir-lang/vim-elixir'
 Plugin 'ervandew/supertab'
 Plugin 'garbas/vim-snipmate'
 Plugin 'godlygeek/tabular'
@@ -67,10 +68,16 @@ set noswapfile
 set autoread        " Reload files outside of vim
 set mouse=a         " Enable mouse in vim
 set ttymouse=xterm2 " More mouse control
-set tabstop=4
-set shiftwidth=4    " when indenting with '>', use 4 spaces width
+set tabstop=2
+set shiftwidth=2    " when indenting with '>', use 4 spaces width
 set expandtab       " On pressing tab, insert 4 spaces
 set number
+
+" Copy and Paste
+vnoremap <silent> <Leader>y "*y
+if !exists('$TMUX')
+  set clipboard=unnamed
+endif
 
 let mapleader=','
 map <Leader>h :nohl<CR> " Turn off highlighting
