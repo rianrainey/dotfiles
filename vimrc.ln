@@ -29,6 +29,7 @@ Plugin 'VundleVim/Vundle.vim'
 " My Plugins
 Plugin 'airblade/vim-gitgutter'
 Plugin 'ap/vim-css-color'
+Plugin 'bling/vim-airline'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'ervandew/supertab'
@@ -73,6 +74,13 @@ set shiftwidth=2    " when indenting with '>', use 4 spaces width
 set expandtab       " On pressing tab, insert 4 spaces
 set number
 
+" Theme
+colorscheme onedark
+
+" Airline Configuration
+set laststatus=2 " Always show status line
+let g:airline_powerline_fonts = 1
+
 " Copy and Paste
 vnoremap <silent> <Leader>y "*y
 if !exists('$TMUX')
@@ -97,7 +105,6 @@ nnoremap <C-H> <C-W><C-H>
 
 " CtrlP
 nmap <silent><C-t> :CtrlP<cr>
-let g:ctrlp_by_filename = 1
 
 " Cursor
 " for iterm

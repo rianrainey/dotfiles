@@ -14,10 +14,10 @@ alias glg='glog --graph'
 alias gpob='git push origin $(current_branch)'
 
 # Unix
-alias la="ls -la"
+alias la="ls -lah"
 alias freq='cut -f1 -d" " ~/.bash_history | sort | uniq -c | sort -nr | head -n 30' # Most used commands
-alias dotfiles="mvim ~/Code/dotfiles"
-alias cddotfiles="cd ~/Code/dotfiles"
+alias vdots="vim ~/Code/dotfiles"
+alias cddots="cd ~/Code/dotfiles"
 alias mkcd='function _mkcd() { mkdir -p $1; cd $1; }; _mkcd'
 
 ## Doesn't require '\' in command like: rake college:create\[demo\]
@@ -46,8 +46,6 @@ alias rdbr="rake db:rollback"
 alias mysql="/opt/boxen/homebrew/bin/mysql -u root"
 
 # SSH
-alias sshpearlpoint="ssh pearlpoint.org@s161991.gridserver.com"
-alias sshbopr="ssh centre@wdev.tbpr.org"
 
 # Vagrant
 alias vssh="vagrant ssh"
@@ -61,10 +59,10 @@ alias tc="tmux new-session -s"
 alias tl="tmux list-sessions"
 alias tk="tmux kill-session -t"
 alias tr='function rename(){ tmux rename-session -t $1 $2; }; rename'
-alias tmate-ssh="tmate show-messages"
+alias tssh="tmate show-messages"
 
 # Vim Snippets
-alias snippets="mvim ~/.vim/bundle/mysnippets/snippets"
+alias snippets="vim ~/.vim/bundle/mysnippets/snippets"
 
 # RVM
 function gemu(){
