@@ -10,26 +10,11 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-" Plugin 'tpope/vim-fugitive'
-" plugin from http://vim-scripts.org/vim/scripts.html
-" Plugin 'L9'
-" Git plugin not hosted on GitHub
-" Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-" Plugin 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-" Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Avoid a name conflict with L9
-" VkkPlugin 'user/L9', {'name': 'newL9'}
-
 " My Plugins
 Plugin 'airblade/vim-gitgutter'
 Plugin 'ap/vim-css-color'
 Plugin 'bling/vim-airline'
+Plugin 'BjRo/vim-extest'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'ervandew/supertab'
@@ -37,29 +22,25 @@ Plugin 'garbas/vim-snipmate'
 Plugin 'godlygeek/tabular'
 Plugin 'honza/vim-snippets'
 Plugin 'jeetsukumaran/vim-buffergator'
+Plugin 'luochen1990/rainbow'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'mattn/gist-vim'
 Plugin 'mattn/webapi-vim'
+Plugin 'rizzatti/dash.vim'
+Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'thoughtbot/vim-rspec'
 Plugin 'tomtom/tlib_vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-bundler'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
-
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
 
 syntax on           " Syntax Highlighting
 syntax enable
@@ -73,13 +54,21 @@ set tabstop=2
 set shiftwidth=2    " when indenting with '>', use 4 spaces width
 set expandtab       " On pressing tab, insert 4 spaces
 set number
+set t_Co=256
+"hi TabLineFill ctermfg=Gray ctermbg=Black
+"hi TabLine ctermfg=Gray ctermbg=Black
+"hi TabLineSel ctermfg=Black ctermbg=White
 
 " Theme
-colorscheme onedark
+colorscheme peachpuff
+let mapleader=','
 
 " Airline Configuration
 set laststatus=2 " Always show status line
 let g:airline_powerline_fonts = 1
+
+" Rainbox Parens
+let g:rainbow_active = 1
 
 " Copy and Paste
 vnoremap <silent> <Leader>y "*y
@@ -87,12 +76,13 @@ if !exists('$TMUX')
   set clipboard=unnamed
 endif
 
-let mapleader=','
-map <Leader>h :nohl<CR> " Turn off highlighting
+" Highlighting
+hi Search ctermfg=Black
+" Clear last search highlighting
+noremap <Space> :noh<cr>
 
 " Ruler
-set colorcolumn=80
-highlight ColorColumn ctermbg=red ctermfg=white guibg=red guifg=white
+"set colorcolumn=80
 
 " NERDTreeToggle to Ctrl+d
 nmap <silent> <C-D> :NERDTreeToggle<CR>
@@ -103,18 +93,15 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" CtrlP
-nmap <silent><C-t> :CtrlP<cr>
-
 " Cursor
 " for iterm
-let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-let &t_SR = "\<Esc>]50;CursorShape=2\x7"
-let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+"let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+"let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+"let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 " For tmux
-let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
-let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+"let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+"let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
+"let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 
 " Fugitive
 nnoremap <silent> <leader>ga :Gwrite<CR>
@@ -149,7 +136,53 @@ au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 " Gist Vim
 let g:gist_post_private = 1
 
+" Snippets
+"let g:snipMate.scope_aliases['eelixir'] = 'html, eelixir'
+
+" RSpec.vim mappings
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
+
+" Spell Check
+"" Spell Check By Default
+autocmd BufRead,BufNewFile *.md setlocal spell
+autocmd FileType gitcommit setlocal spell
+
+" Vim Dash
+nmap <silent> <leader>d <Plug>DashSearch
+
+" Vim ExTest
+" TODO: Add only for elixir filetype
+autocmd FileType elixir map <leader>m :ExTestRunFile<CR>
+"map <leader>T :ExTestRunFile<CR>
+"map <leader>t :ExTestRunMethod<CR>
+"map <leader>lt :ExTestRunLast<CR>
 """""""""""""""
 " CoverMyMeds
 """""""""""""""
 source ~/.workvimrc
+
+" Use The Silver Searcher if available, else ack
+" http://robots.thoughtbot.com/faster-grepping-in-vim
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+else
+  " it's better than grep
+  set grepprg=ack
+endif
+
+" bind K to grep word under cursor
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+
+" bind \ (backward slash) to grep shortcut
+"command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+nnoremap \ :Ag<SPACE>

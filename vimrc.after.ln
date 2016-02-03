@@ -115,8 +115,8 @@ if exists(":Tabularize")
   vmap <Leader>t: :Tabularize /:\zs<CR>
 endif
 
-" prevent ri doc popup
-" autocmd FileType ruby,eruby set noballooneval
+" Elixir
+nnoremap <Leader>m :!mix test<CR>
 
 " SparkUp
 let g:sparkupExecuteMapping = '<c-y>'

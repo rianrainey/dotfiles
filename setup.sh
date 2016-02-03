@@ -25,6 +25,7 @@ brew install findutils
 binaries=(
   ack
   ag
+  ctags
   elixir
   gpg
   heroku
@@ -33,6 +34,8 @@ binaries=(
   node
   postgresql
   python
+  rbenv
+  ruby-build
   reattach-to-user-namespace # Fix for tmux copy-paste
   rename
   tmux
@@ -69,7 +72,6 @@ apps=(
   flash
   flux
   firefox
-  google-chrome
   google-drive
   harvest
   hipchat
@@ -91,7 +93,6 @@ apps=(
   vagrant
   virtualbox
   vlc
-  ynab
 )
 
 # Install apps to /Applications

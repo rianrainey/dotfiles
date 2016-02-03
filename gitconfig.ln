@@ -1,7 +1,7 @@
 [user]
   user = rianrainey
   name = Rian Rainey
-  email = hello@rian.me
+  email = rrainey@covermymeds.com
 [credential]
   helper = /opt/boxen/bin/boxen-git-credential
 [alias]
