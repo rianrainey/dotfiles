@@ -15,26 +15,35 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'ap/vim-css-color'
 Plugin 'bling/vim-airline'
 Plugin 'BjRo/vim-extest'
+Plugin 'Chun-Yang/vim-action-ag'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'danro/rename.vim'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'ervandew/supertab'
 Plugin 'garbas/vim-snipmate'
 Plugin 'godlygeek/tabular'
 Plugin 'honza/vim-snippets'
+Plugin 'jiangmiao/auto-pairs'
 Plugin 'jeetsukumaran/vim-buffergator'
+Plugin 'jtratner/vim-flavored-markdown'
 Plugin 'luochen1990/rainbow'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'mattn/gist-vim'
 Plugin 'mattn/webapi-vim'
+Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'rizzatti/dash.vim'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/syntastic'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'tomtom/tlib_vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-bundler'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-surround'
+Plugin 'vim-scripts/ruby-matchit'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -55,12 +64,24 @@ set shiftwidth=2    " when indenting with '>', use 4 spaces width
 set expandtab       " On pressing tab, insert 4 spaces
 set number
 set t_Co=256
+"let g:ctrlp_user_command = 0
+
+" Spelling
+"set nospell
+hi clear SpellBad
+hi SpellBad cterm=underline ctermbg=red ctermfg=white
+"autocmd BufRead,BufNewFile *.md setlocal spell
+"autocmd FileType gitcommit setlocal spell
+
+" Folded
+hi Folded ctermbg=gray ctermfg=white
+
 "hi TabLineFill ctermfg=Gray ctermbg=Black
 "hi TabLine ctermfg=Gray ctermbg=Black
 "hi TabLineSel ctermfg=Black ctermbg=White
 
 " Theme
-colorscheme peachpuff
+colorscheme slate
 let mapleader=','
 
 " Airline Configuration
@@ -77,9 +98,10 @@ if !exists('$TMUX')
 endif
 
 " Highlighting
-hi Search ctermfg=Black
+" hi Search ctermfg=Black
 " Clear last search highlighting
-noremap <Space> :noh<cr>
+noremap <Space> :set hlsearch!<cr>
+hi Search ctermbg=yellow ctermfg=black
 
 " Ruler
 "set colorcolumn=80
@@ -125,7 +147,7 @@ set foldlevel=1         "this is just what i use
 
 " Map new lines
 map <S-Enter> O<Esc>j
-map <CR> o<Esc>k
+"map <CR> o<Esc>k
 
 " Trailing Whitespace
 set listchars=tab:»·,trail:·      
@@ -140,15 +162,11 @@ let g:gist_post_private = 1
 "let g:snipMate.scope_aliases['eelixir'] = 'html, eelixir'
 
 " RSpec.vim mappings
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
+noremap <Leader>t :call RunCurrentSpecFile()<CR>
+noremap <Leader>s :call RunNearestSpec()<CR>
+noremap <Leader>l :call RunLastSpec()<CR>
+noremap <Leader>a :call RunAllSpecs()<CR>
 
-" Spell Check
-"" Spell Check By Default
-autocmd BufRead,BufNewFile *.md setlocal spell
-autocmd FileType gitcommit setlocal spell
 
 " Vim Dash
 nmap <silent> <leader>d <Plug>DashSearch
@@ -159,6 +177,22 @@ autocmd FileType elixir map <leader>m :ExTestRunFile<CR>
 "map <leader>T :ExTestRunFile<CR>
 "map <leader>t :ExTestRunMethod<CR>
 "map <leader>lt :ExTestRunLast<CR>
+
+if exists(":Tabularize")
+  nmap <Leader>= :Tabularize /=<CR>
+  vmap <Leader>= :Tabularize /=<CR>
+endif
+
+" Markdown
+augroup markdown
+    au!
+    au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
+augroup END
+
+" Vim Indent Guides
+"let g:indent_guides_auto_colors = 0
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
 """""""""""""""
 " CoverMyMeds
 """""""""""""""
@@ -171,7 +205,8 @@ if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
 
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  " I haven't set up my gitignore enough for this to not sure dotfiles
+  "let g:ctrlp_user_command = 'ag -Q  -l --nocolor --hidden -g "" %s'
 
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
