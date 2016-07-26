@@ -20,8 +20,3 @@
     user = rianrainey
 [web]
     browser = open
-
-[hub]
-protocol = https
-[init]
-	templatedir = ~/.git_template

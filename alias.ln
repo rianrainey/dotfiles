@@ -62,6 +62,9 @@ alias tk="tmux kill-session -t"
 alias tr='function rename(){ tmux rename-session -t $1 $2; }; rename'
 alias tssh="tmate show-messages"
 
+# Tmate
+alias tmlink="tmate show-messages | grep 'ssh session: ssh -p' | tail -1 | cut -d' ' -f9- | pbcopy"
+
 # Vim Snippets
 alias snippets="vim ~/.vim/bundle/mysnippets/snippets"
 

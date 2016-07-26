@@ -17,7 +17,7 @@ DEFAULT_USER="rianrainey"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git osx)
 
-CONFIG_PATH=$HOME/Code/dotFiles
+CONFIG_PATH=$HOME/bin/dotFiles
 
 source $ZSH/oh-my-zsh.sh
 
@@ -54,4 +54,10 @@ if which brew >/dev/null; then
     mkdir -p $WORKON_HOME
     source $VIRTUALENVWRAPPER
   fi
+fi
+
+# Automatically add ssh on reboot :(
+ssh-add -L &> /dev/null
+if [ $? -eq 1 ]; then
+  ssh-add
 fi

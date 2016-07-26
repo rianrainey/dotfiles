@@ -163,6 +163,8 @@ au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 " Gist Vim
 let g:gist_post_private = 1
 
+" Escape is too far away
+:imap jk <Esc>
 " Snippets
 "let g:snipMate.scope_aliases['eelixir'] = 'html, eelixir'
 
