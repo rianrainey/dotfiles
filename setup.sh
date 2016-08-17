@@ -25,6 +25,7 @@ brew install findutils
 binaries=(
   ack
   ag
+  cheat
   ctags
   elixir
   gpg
