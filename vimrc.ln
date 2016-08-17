@@ -48,6 +48,8 @@ Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
+Plugin 'tyru/open-browser.vim'
+Plugin 'tyru/open-browser-github.vim'
 Plugin 'vim-scripts/ruby-matchit'
 
 " All of your Plugins must be added before the following line
@@ -202,10 +204,15 @@ let g:indent_guides_guide_size = 1
 "autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
 "autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
 
-"""""""""""""""
-" CoverMyMeds
-"""""""""""""""
-source ~/.workvimrc
+""""""""""""""""""""
+" Whitespace Removal
+""""""""""""""""""""
+fun! TrimWhitespace()
+  let l:save = winsaveview()
+  %s/\s\+$//e
+  call winrestview(l:save)
+endfun
+noremap <Leader>w :call TrimWhitespace()<CR>
 
 " Use The Silver Searcher if available, else ack
 " http://robots.thoughtbot.com/faster-grepping-in-vim
@@ -236,3 +243,9 @@ xmap ga <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+
+"""""""""""""""
+" CoverMyMeds
+"""""""""""""""
+source ~/.workvimrc
+

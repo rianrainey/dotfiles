@@ -20,3 +20,7 @@
     user = rianrainey
 [web]
     browser = open
+[pull]
+  rebase = true
+[init]
+	templatedir = ~/.git_template

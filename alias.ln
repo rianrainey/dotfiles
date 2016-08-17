@@ -79,3 +79,8 @@ function gembuild(){
   gem build $1
 }
 
+#alias VAGRANT_ETC_HOSTS = /usr/bin/tee -a /etc/hosts
+#alias VAGRANT_EXPORTS_ADD = /usr/bin/tee -a /etc/exports
+#alias VAGRANT_NFSD = /sbin/nfsd restart
+#alias VAGRANT_EXPORTS_REMOVE = /usr/bin/sed -E -e /*/ d -ibak /etc/exports
+#admin ALL=(root) NOPASSWD: VAGRANT_ETC_HOSTS, VAGRANT_EXPORTS_ADD, VAGRANT_NFSD, VAGRANT_EXPORTS_REMOVE
