@@ -24,3 +24,6 @@
   rebase = true
 [init]
 	templatedir = ~/.git_template
+[hub]
+	host = git.innova-partners.com
+	protocol = https
