@@ -12,6 +12,7 @@ alias gmt="git mergetool -t vimdiff"
 alias glog='git log --date-order --pretty="format:%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset"'
 alias glg='glog --graph'
 alias gpob='git push origin $(current_branch)'
+alias gcom='git checkout master; git pull'
 
 # Unix
 alias la="ls -lah"
@@ -20,6 +21,8 @@ alias vdots="vim ~/Code/dotfiles"
 alias cddots="cd ~/Code/dotfiles"
 alias mkcd='function _mkcd() { mkdir -p $1; cd $1; }; _mkcd'
 alias vm='cd ~/Code/vagrant/code'
+alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
+alias prettyjson='python -m json.tool'
 
 ## Doesn't require '\' in command like: rake college:create\[demo\]
 ## Can just say rake college:create[demo]

@@ -1,0 +1,2 @@
+# Format an XML file
+xmllint --format ./path/to/bad/format.xml > ./path/to/formatted.xml

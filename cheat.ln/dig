@@ -1,0 +1,3 @@
+# How to retrieve external ip address
+dig +short myip.opendns.com @resolver1.opendns.com # OR
+dig TXT +short o-o.myaddr.l.google.com @ns1.google.com

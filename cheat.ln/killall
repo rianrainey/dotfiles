@@ -1,0 +1,2 @@
+# How to restart dock
+killall -KILL Dock
