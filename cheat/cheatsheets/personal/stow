@@ -1,0 +1,11 @@
+# cd to ~/dotfiles
+
+# Symlink files inside ./dotfiles/zsh/* to ~/*
+# e.g. .zshrc -> ./dotfiles/zsh/.zshrc
+stow zsh
+
+# Symlink ~/.config files
+# ex: symlink ~/.config/cheat to ./dotfiles/cheat
+mv ~/.config/cheat ./ # move current config to versioned dotfiles
+mkdir ~/.config/cheat # make directory before you can symlink it
+stow -t ~/.config/cheat cheat
