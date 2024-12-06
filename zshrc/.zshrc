@@ -107,10 +107,12 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias rogue="lsof -i TCP:3100 -t | xargs kill -9; bin/rails s -p 3100"
 alias gbname="git rev-parse --abbrev-ref HEAD"
+alias n="nvim"
 alias rmpry="$HOME/Documents/code/new-computer/scripts/remove_pry.sh"
+alias rogue="lsof -i TCP:3100 -t | xargs kill -9; bin/rails s -p 3100"
 alias rz="source ~/.zshrc"
+alias y="yazi"
 
 # Golang
 #GOROOT=~/.asdf/installs/golang/1.20.2/go
