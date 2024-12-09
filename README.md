@@ -13,6 +13,14 @@ Put application dotfiles in respective folder. For example, `~/dotfiles/vim/.vim
 cd ~
 git clone git@github.com:rianrainey/dotfiles.git
 stow git # Or whatever module you what to symlink
+
+### How to add new dotfiles
+```
+cd ~/dotfiles
+mv ~/.config/nvim ./nvim # Move current config to dotfiles
+mkdir ~/.config/nvim # Create directory first
+stow -t ~/.config/nvim nvim # Target specific directory instead of just parent directory
+```
 ```
 
 ## Steps For New Install
