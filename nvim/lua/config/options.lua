@@ -4,3 +4,4 @@
 
 -- Content at the top of every window
 vim.opt.winbar = "%=%m %f"
+vim.g.lazyvim_picker = "telescope"

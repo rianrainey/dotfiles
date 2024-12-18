@@ -20,9 +20,15 @@ cd ~/dotfiles
 mv ~/.config/nvim ./nvim # Move current config to dotfiles
 mkdir ~/.config/nvim # Create directory first
 stow -t ~/.config/nvim nvim # Target specific directory instead of just parent directory
-```
-```
 
+### How to source tmux
+
+### How to source vimrc
+`source $MYVIMRC`
+or
+`<leader>vr # as found in init.lua`
+
+```
 ## Steps For New Install
 
 ```

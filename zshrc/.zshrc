@@ -107,6 +107,7 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias be="bundle exec"
 alias gbname="git rev-parse --abbrev-ref HEAD"
 alias n="nvim"
 alias rmpry="$HOME/Documents/code/new-computer/scripts/remove_pry.sh"
@@ -135,3 +136,9 @@ eval "$(starship init zsh)"
 #This is usually done by running one of the following (note the leading DOT):
 #. "/Users/c-rian.rainey/.asdf/installs/rust/1.82.0/env"            # For
 #sh/bash/zsh/ash/dash/pdksh
+
+
+
+# Vimeo specific
+export PATH="/Applications/Postgres.app/Contents/Versions/16/bin:$PATH"
+#export PORT=3100
