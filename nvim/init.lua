@@ -1,6 +1,41 @@
 -- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")
 
+-- Set up vim config
+vim.cmd([[
+  set foldmethod=indent
+
+  " Highlight trailing whitespace in red
+  set listchars=tab:▸\ ,trail:· " configures how whitespace characters are displayed:
+  set list " enables the display of these special characters
+  highlight ExtraWhitespace ctermbg=red guibg=red
+  match ExtraWhitespace /\s\+$/ "matches and highlights Any whitespace (\s+) At the end of lines ($)
+  " TODO: red space shows up in neotree too :(
+
+  " Triggers before writing a buffer (BufWritePre)
+  " Applies to all files (*)
+  " Substitutes trailing whitespace with nothing
+  " The e flag suppresses errors if no matches found
+  autocmd BufWritePre * :%s/\s\+$//e
+
+  " Dont go into insert mode when adding new line above cursor
+  nnoremap O O<Esc>
+
+  " Turn off relative numbers by default. I think Lazyvim/Neovim turns these on
+  set norelativenumber
+
+
+]])
+
+-- vim-test mappings
+-- vim.keymap.set("n", "<leader>t", ":TestNearest<CR>", { silent = true })
+-- vim.keymap.set("n", "<leader>T", ":TestFile<CR>", { silent = true })
+-- vim.keymap.set("n", "<leader>a", ":TestSuite<CR>", { silent = true })
+-- vim.keymap.set("n", "<leader>l", ":TestLast<CR>", { silent = true })
+-- vim.keymap.set("n", "<leader>g", ":TestVisit<CR>", { silent = true })
+-- vim.g.test#strategy = "neovim"
+-- vim.g.test#neovim#term_position = "botright 15" -- Set terminal height to 15 lines
+
 -- Set up notify as the default notification system
 vim.opt.termguicolors = true
 vim.notify = require("notify")

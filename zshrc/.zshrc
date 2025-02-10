@@ -114,12 +114,14 @@ alias rmpry="$HOME/Documents/code/new-computer/scripts/remove_pry.sh"
 alias rogue="lsof -i TCP:3100 -t | xargs kill -9; bin/rails s -p 3100"
 alias rz="source ~/.zshrc"
 alias y="yazi"
+alias rdbm="rails db:migrate"
+alias rc="rails console"
 
 # Golang
 #GOROOT=~/.asdf/installs/golang/1.20.2/go
 
 # Starship
-eval "$(starship init zsh)"
+# eval "$(starship init zsh)"
 
 # ASDF - keep these at the end
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
@@ -137,7 +139,10 @@ eval "$(starship init zsh)"
 #. "/Users/c-rian.rainey/.asdf/installs/rust/1.82.0/env"            # For
 #sh/bash/zsh/ash/dash/pdksh
 
-
+# Make and cd into new directory
+function mkcd() {
+    mkdir -p "$1" && cd "$1"
+}
 
 # Vimeo specific
 export PATH="/Applications/Postgres.app/Contents/Versions/16/bin:$PATH"
