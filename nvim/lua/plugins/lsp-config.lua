@@ -1,39 +1,16 @@
--- return {
---   {
---     "williamboman/mason.nvim",
---     config = function()
---       require("mason").setup()
---     end,
---   },
---   {
---     "williamboman/mason-lspconfig.nvim",
---     config = function()
---       require("mason-lspconfig").setup()
---     end,
---   },
---   {
---     "neovim/nvim-lspconfig",
---     config = function()
---       local lspconfig = require("lspconfig")
---       lspconfig.lua_ls.setup()
---     end,
---   },
--- }
--- Typecraft
--- https://youtu.be/S-xzYgTLVJE?si=MGNvzcZ6ksE57r5C&t=539
 return {
   {
-    "williamboman/mason.nvim",
+    "williamboman/mason.nvim", -- installs and manages LSP servers
     dependencies = {
-      "williamboman/mason-lspconfig.nvim",
-      "neovim/nvim-lspconfig",
+      "williamboman/mason-lspconfig.nvim", -- makes sure we have LSPs installed and configured
+      "neovim/nvim-lspconfig", -- sets up LSP connection for Neovim
     },
     config = function()
       require("mason").setup()
       require("mason-lspconfig").setup({
         ensure_installed = {
           "lua_ls",
-          "ruby_lsp", -- ruby
+          "ruby_lsp", -- ruby. was causing errors
           "tsserver", -- typescript
 
           -- Add other LSPs you want to install
@@ -59,4 +36,9 @@ return {
       vim.keymap.set({ "n", "v" }, "<leader>ca", "vim.lsp.buf.code_action", {})
     end,
   },
+
+  -- LazyVim preferred plugin for formatter. Already installed
+  -- "stevearc/conform.nvim",
+  -- opts = {},
+  -- So is nvim-lint
 }

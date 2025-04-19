@@ -73,9 +73,11 @@ ZSH_THEME="robbyrussell"
 plugins=(
   aliases
   colored-man-pages
+  dotenv
   git
   tmux
 )
+ZSH_DOTENV_PROMPT=false # dotenv plugin
 
 source $ZSH/oh-my-zsh.sh
 
@@ -109,6 +111,7 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias be="bundle exec"
 alias gbname="git rev-parse --abbrev-ref HEAD"
+alias gstu="git stash --keep-index" # git stash unstaged
 alias n="nvim"
 alias rmpry="$HOME/Documents/code/new-computer/scripts/remove_pry.sh"
 alias rogue="lsof -i TCP:3100 -t | xargs kill -9; bin/rails s -p 3100"
@@ -116,6 +119,8 @@ alias rz="source ~/.zshrc"
 alias y="yazi"
 alias rdbm="rails db:migrate"
 alias rc="rails console"
+alias psrspec='echo "Start Time\tPID\tCommand\t\tPath"; ps -ef | grep rspec | grep -v grep | awk '\''{printf "%-15s\t%-s\t%-8s\t%-15s\n", $5, $2, $9, $10}'\'
+
 
 # Golang
 #GOROOT=~/.asdf/installs/golang/1.20.2/go
