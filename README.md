@@ -96,6 +96,7 @@ stow -n -v -t "$HOME" tmux
 stow -n -v -t "$HOME" git
 stow -n -v -t "$HOME" ghostty
 stow -n -v -t "$HOME" tmux-sessionizer
+stow -n -v -t "$HOME" aerospace
 ```
 
 If the dry run looks right, run without `-n`:
@@ -106,6 +107,7 @@ stow -v -t "$HOME" tmux
 stow -v -t "$HOME" git
 stow -v -t "$HOME" ghostty
 stow -v -t "$HOME" tmux-sessionizer
+stow -v -t "$HOME" aerospace
 ```
 
 For Neovim, target `~/.config/nvim`:
@@ -132,6 +134,7 @@ stow -v -t "$HOME" zshrc
 | `git` | `~/.gitconfig` | Git defaults |
 | `ghostty` | `~/.config/ghostty/config` | Ghostty terminal config |
 | `tmux-sessionizer` | `~/.config/tmux-sessionizer`, `~/.local/bin` | Project/session picker |
+| `aerospace` | `~/.aerospace.toml` | AeroSpace workspace, monitor, and app routing |
 | `nvim` | `~/.config/nvim` | Neovim config |
 
 ## Reload Commands

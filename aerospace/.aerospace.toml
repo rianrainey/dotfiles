@@ -1,0 +1,188 @@
+# AeroSpace config for Rian
+# Installed to ~/.aerospace.toml
+
+config-version = 2
+
+after-startup-command = []
+start-at-login = true
+
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+
+accordion-padding = 24
+default-root-container-layout = 'tiles'
+default-root-container-orientation = 'auto'
+
+on-focused-monitor-changed = []
+automatically-unhide-macos-hidden-apps = false
+
+persistent-workspaces = ['1', '2', '3', '4', '5', '6', '7', '8', '9', 'T', 'D', 'B', 'S', 'N', 'C', 'M', 'P']
+on-mode-changed = []
+
+on-window-detected = [
+    # Laptop/dev
+    { if.app-id = 'com.mitchellh.ghostty', run = 'move-node-to-workspace T' },
+    { if.app-id = 'com.googlecode.iterm2', run = 'move-node-to-workspace T' },
+    { if.app-id = 'com.todesktop.230313mzl4w4u92', run = 'move-node-to-workspace D' },
+    { if.app-id = 'com.microsoft.VSCode', run = 'move-node-to-workspace D' },
+
+    # Browser on top/left external
+    { if.app-id = 'com.google.Chrome', run = 'move-node-to-workspace B' },
+
+    # Planning/communication on right external
+    { if.app-id = 'com.tinyspeck.slackmacgap', run = 'move-node-to-workspace S' },
+    { if.app-id = 'notion.id', run = 'move-node-to-workspace N' },
+    { if.app-id = 'com.google.Chrome.app.kjbdgfilnfhdoflbpgamdcdgpehopbep', run = 'move-node-to-workspace C' },
+    { if.app-id = 'com.readdle.SparkDesktop', run = 'move-node-to-workspace M' },
+    { if.app-id = 'com.spotify.client', run = 'move-node-to-workspace P' },
+    { if.app-id = 'com.apple.MobileSMS', run = 'move-node-to-workspace P' },
+    { if.app-id = 'com.openai.chat', run = 'move-node-to-workspace P' },
+
+    # Utility windows that behave better floating.
+    { if.app-id = 'com.1password.1password', run = 'layout floating' },
+    { if.app-id = 'com.apple.systempreferences', run = 'layout floating' },
+    { if.app-id = 'com.apple.systemsettings', run = 'layout floating' },
+]
+
+[workspace-to-monitor-force-assignment]
+    # Laptop/dev
+    T = ['built-in', 'main']          # Terminal
+    D = ['built-in', 'main']          # Code
+
+    # Top/left external: DELL S2725DSM
+    B = ['dell', 'secondary', 'main'] # Browser
+
+    # Right external: S27H85x
+    S = ['S27H85x', 'secondary', 'main'] # Slack
+    N = ['S27H85x', 'secondary', 'main'] # Notion
+    C = ['S27H85x', 'secondary', 'main'] # Calendar
+    M = ['S27H85x', 'secondary', 'main'] # Mail
+    P = ['S27H85x', 'secondary', 'main'] # Personal/media
+
+[key-mapping]
+    preset = 'qwerty'
+
+[gaps]
+    inner.horizontal = 4
+    inner.vertical = 4
+    outer.left = 0
+    outer.bottom = 0
+    outer.top = 0
+    outer.right = 0
+
+[mode.main.binding]
+    # App launcher
+    alt-enter = 'exec-and-forget /usr/bin/open -a Ghostty'
+    cmd-alt-ctrl-shift-b = 'exec-and-forget /usr/bin/open -a "Google Chrome"'
+    cmd-alt-ctrl-shift-t = 'exec-and-forget /usr/bin/open -a Ghostty'
+    cmd-alt-ctrl-shift-m = 'exec-and-forget /usr/bin/open -a Spotify'
+    cmd-alt-ctrl-shift-c = 'exec-and-forget /usr/bin/open -a Slack'
+    cmd-alt-ctrl-shift-i = 'exec-and-forget /usr/bin/open -a Messages'
+    cmd-alt-ctrl-shift-e = 'exec-and-forget /usr/bin/open -a "Spark Desktop"'
+    cmd-alt-ctrl-shift-f = 'layout floating tiling'
+    cmd-alt-ctrl-shift-0 = 'balance-sizes'
+
+    # Layouts
+    alt-slash = 'layout tiles horizontal vertical'
+    alt-comma = 'layout accordion horizontal vertical'
+    alt-f = 'fullscreen'
+    alt-shift-f = 'layout floating tiling'
+
+    # App workspaces
+    alt-t = 'workspace T'
+    alt-d = 'workspace D'
+    alt-b = 'workspace B'
+    alt-s = 'workspace S'
+    alt-n = 'workspace N'
+    alt-c = 'workspace C'
+    alt-m = 'workspace M'
+    alt-p = 'workspace P'
+
+    alt-shift-t = 'move-node-to-workspace T'
+    alt-shift-d = 'move-node-to-workspace D'
+    alt-shift-b = 'move-node-to-workspace B'
+    alt-shift-s = 'move-node-to-workspace S'
+    alt-shift-n = 'move-node-to-workspace N'
+    alt-shift-c = 'move-node-to-workspace C'
+    alt-shift-m = 'move-node-to-workspace M'
+    alt-shift-p = 'move-node-to-workspace P'
+
+    alt-ctrl-t = ['move-node-to-workspace T', 'workspace T']
+    alt-ctrl-d = ['move-node-to-workspace D', 'workspace D']
+    alt-ctrl-b = ['move-node-to-workspace B', 'workspace B']
+    alt-ctrl-s = ['move-node-to-workspace S', 'workspace S']
+    alt-ctrl-n = ['move-node-to-workspace N', 'workspace N']
+    alt-ctrl-c = ['move-node-to-workspace C', 'workspace C']
+    alt-ctrl-m = ['move-node-to-workspace M', 'workspace M']
+    alt-ctrl-p = ['move-node-to-workspace P', 'workspace P']
+
+    # Focus
+    alt-h = 'focus left'
+    alt-j = 'focus down'
+    alt-k = 'focus up'
+    alt-l = 'focus right'
+
+    # Move windows
+    alt-shift-h = 'move left'
+    alt-shift-j = 'move down'
+    alt-shift-k = 'move up'
+    alt-shift-l = 'move right'
+
+    # Resize
+    alt-minus = 'resize smart -50'
+    alt-equal = 'resize smart +50'
+
+    # Number workspaces stay available
+    alt-1 = 'workspace 1'
+    alt-2 = 'workspace 2'
+    alt-3 = 'workspace 3'
+    alt-4 = 'workspace 4'
+    alt-5 = 'workspace 5'
+    alt-6 = 'workspace 6'
+    alt-7 = 'workspace 7'
+    alt-8 = 'workspace 8'
+    alt-9 = 'workspace 9'
+
+    alt-shift-1 = 'move-node-to-workspace 1'
+    alt-shift-2 = 'move-node-to-workspace 2'
+    alt-shift-3 = 'move-node-to-workspace 3'
+    alt-shift-4 = 'move-node-to-workspace 4'
+    alt-shift-5 = 'move-node-to-workspace 5'
+    alt-shift-6 = 'move-node-to-workspace 6'
+    alt-shift-7 = 'move-node-to-workspace 7'
+    alt-shift-8 = 'move-node-to-workspace 8'
+    alt-shift-9 = 'move-node-to-workspace 9'
+
+    alt-ctrl-1 = ['move-node-to-workspace 1', 'workspace 1']
+    alt-ctrl-2 = ['move-node-to-workspace 2', 'workspace 2']
+    alt-ctrl-3 = ['move-node-to-workspace 3', 'workspace 3']
+    alt-ctrl-4 = ['move-node-to-workspace 4', 'workspace 4']
+    alt-ctrl-5 = ['move-node-to-workspace 5', 'workspace 5']
+    alt-ctrl-6 = ['move-node-to-workspace 6', 'workspace 6']
+    alt-ctrl-7 = ['move-node-to-workspace 7', 'workspace 7']
+    alt-ctrl-8 = ['move-node-to-workspace 8', 'workspace 8']
+    alt-ctrl-9 = ['move-node-to-workspace 9', 'workspace 9']
+
+    # Workspace/monitor flow
+    alt-tab = 'workspace-back-and-forth'
+    alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
+    alt-ctrl-h = 'focus-monitor left'
+    alt-ctrl-l = 'focus-monitor right'
+    alt-ctrl-shift-h = 'move-node-to-monitor left'
+    alt-ctrl-shift-l = 'move-node-to-monitor right'
+
+    # Service mode
+    alt-shift-semicolon = 'mode service'
+    alt-shift-space = 'mode service'
+
+[mode.service.binding]
+    esc = ['reload-config', 'mode main']
+    r = ['flatten-workspace-tree', 'mode main']
+    b = ['balance-sizes', 'mode main']
+    f = ['layout floating tiling', 'mode main']
+    backspace = ['close-all-windows-but-current', 'mode main']
+
+    alt-shift-h = ['join-with left', 'mode main']
+    alt-shift-j = ['join-with down', 'mode main']
+    alt-shift-k = ['join-with up', 'mode main']
+    alt-shift-l = ['join-with right', 'mode main']
