@@ -2,6 +2,6 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 
--- Content at the top of every window
-vim.opt.winbar = "%=%m %f"
+-- Keep file location in the statusline/tree instead of duplicating it in a winbar.
+vim.opt.winbar = ""
 vim.g.lazyvim_picker = "telescope"
