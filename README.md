@@ -1,6 +1,6 @@
 # Dotfiles
 
-Personal macOS dotfiles for `rianrainey`. This repo is meant to be easy to use on a new computer and easy for an agent to operate without guessing.
+Personal macOS dotfiles. This repo is meant to be easy to use on a new computer and easy for an agent to operate without guessing.
 
 The repo uses [GNU Stow](https://www.gnu.org/software/stow/) packages. Each top-level directory is a package whose contents should be symlinked into `$HOME`.
 
@@ -22,50 +22,61 @@ brew install neovim
 
 ### 2. Configure personal GitHub SSH
 
-This repo should use the personal GitHub account `rianrainey`, not a work account.
+This repo should use a personal GitHub account, not a work account.
+
+Before editing SSH or Git config, fill in these placeholders:
+
+| Placeholder | Meaning |
+| --- | --- |
+| `<personal-github-user>` | Personal GitHub username |
+| `<developer-name>` | Git author name |
+| `<personal-email>` | Personal Git author email |
+| `<work-github-label>` | Short label for the work account or company |
+| `<personal-ssh-key>` | Personal SSH private key filename |
+| `<work-ssh-key>` | Work SSH private key filename |
 
 Expected SSH aliases:
 
 ```sshconfig
-Host github.com-rianrainey
+Host github.com-personal
   HostName github.com
   User git
-  IdentityFile ~/.ssh/id_ed25519_github_rianrainey
+  IdentityFile ~/.ssh/<personal-ssh-key>
   IdentitiesOnly yes
 
-Host github.com github.com-goodrx
+Host github.com github.com-<work-github-label>
   HostName github.com
   User git
-  IdentityFile ~/.ssh/id_rsa
+  IdentityFile ~/.ssh/<work-ssh-key>
   IdentitiesOnly yes
 ```
 
 Verify personal GitHub auth:
 
 ```sh
-ssh -T git@github.com-rianrainey
+ssh -T git@github.com-personal
 ```
 
 Expected result includes:
 
 ```text
-Hi rianrainey! You've successfully authenticated
+Hi <personal-github-user>! You've successfully authenticated
 ```
 
 ### 3. Clone the repo
 
 ```sh
 mkdir -p ~/Documents/code
-git clone git@github.com-rianrainey:rianrainey/dotfiles.git ~/Documents/code/dotfiles
+git clone git@github.com-personal:<personal-github-user>/dotfiles.git ~/Documents/code/dotfiles
 cd ~/Documents/code/dotfiles
 ```
 
 Set repo-local Git identity:
 
 ```sh
-git config user.name "Rian Rainey"
-git config user.email "rianrainey@gmail.com"
-git remote set-url origin git@github.com-rianrainey:rianrainey/dotfiles.git
+git config user.name "<developer-name>"
+git config user.email "<personal-email>"
+git remote set-url origin git@github.com-personal:<personal-github-user>/dotfiles.git
 ```
 
 Verify:
@@ -184,6 +195,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 - Keep commits split by package or concern.
 - Do not commit machine-local secrets, tokens, `.env` files, or SSH private keys.
 - Use `stow -n -v -t "$HOME" <package>` before changing symlinks.
-- This repo should commit as `Rian Rainey <rianrainey@gmail.com>`.
-- This repo should push through `git@github.com-rianrainey:rianrainey/dotfiles.git`.
-- Work GitHub repos should use the `github.com-goodrx` SSH alias or plain `github.com`.
+- Prompt for `<developer-name>`, `<personal-email>`, `<personal-github-user>`, and SSH key filenames before writing Git or SSH config.
+- This repo should commit as `<developer-name> <<personal-email>>`.
+- This repo should push through `git@github.com-personal:<personal-github-user>/dotfiles.git`.
+- Work GitHub repos should use the `github.com-<work-github-label>` SSH alias or plain `github.com`.
