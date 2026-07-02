@@ -13,7 +13,7 @@ accordion-padding = 24
 default-root-container-layout = 'tiles'
 default-root-container-orientation = 'auto'
 
-on-focused-monitor-changed = []
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 automatically-unhide-macos-hidden-apps = false
 
 persistent-workspaces = ['1', '2', '3', '4', '5', '6', '7', '8', '9', 'T', 'D', 'B', 'S', 'N', 'C', 'M', 'P']
@@ -49,15 +49,16 @@ on-window-detected = [
     T = ['built-in', 'main']          # Terminal
     D = ['built-in', 'main']          # Code
 
-    # Top/left external: DELL S2725DSM
-    B = ['dell', 'secondary', 'main'] # Browser
+    # Top/left external: DELL S2725DSM. macOS may sometimes report a blank
+    # display name for this monitor, so prefer AeroSpace's monitor index first.
+    B = ['1', 'DELL S2725DSM', 'dell', 'secondary', 'main'] # Browser
 
     # Right external: S27H85x
-    S = ['S27H85x', 'secondary', 'main'] # Slack
-    N = ['S27H85x', 'secondary', 'main'] # Notion
-    C = ['S27H85x', 'secondary', 'main'] # Calendar
-    M = ['S27H85x', 'secondary', 'main'] # Mail
-    P = ['S27H85x', 'secondary', 'main'] # Personal/media
+    S = ['3', 'S27H85x', 'secondary', 'main'] # Slack
+    N = ['3', 'S27H85x', 'secondary', 'main'] # Notion
+    C = ['3', 'S27H85x', 'secondary', 'main'] # Calendar
+    M = ['3', 'S27H85x', 'secondary', 'main'] # Mail
+    P = ['3', 'S27H85x', 'secondary', 'main'] # Personal/media
 
 [key-mapping]
     preset = 'qwerty'
@@ -170,6 +171,11 @@ on-window-detected = [
     alt-ctrl-l = 'focus-monitor right'
     alt-ctrl-shift-h = 'move-node-to-monitor left'
     alt-ctrl-shift-l = 'move-node-to-monitor right'
+    cmd-alt-ctrl-shift-h = 'move-node-to-monitor left'
+    cmd-alt-ctrl-shift-l = 'move-node-to-monitor right'
+    cmd-alt-ctrl-shift-1 = 'move-node-to-monitor 1'
+    cmd-alt-ctrl-shift-2 = 'move-node-to-monitor 2'
+    cmd-alt-ctrl-shift-3 = 'move-node-to-monitor 3'
 
     # Service mode
     alt-shift-semicolon = 'mode service'
