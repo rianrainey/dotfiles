@@ -75,10 +75,13 @@ plugins=(
   aliases
   colored-man-pages
   dotenv
+  fzf
   git
   tmux
 )
 ZSH_DOTENV_PROMPT=false # dotenv plugin
+FZF_ALT_C_OPTS="--walker-skip .git,node_modules,target,tmp,log"
+FZF_COMPLETION_DIR_OPTS="--walker dir,follow,hidden --walker-skip .git,node_modules,target,tmp,log"
 
 source $ZSH/oh-my-zsh.sh
 

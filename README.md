@@ -145,6 +145,24 @@ Reload zsh:
 source ~/.zshrc
 ```
 
+## Zsh Directory Finder
+
+The `zshrc` package enables the existing Oh My Zsh `fzf` plugin. It provides fuzzy directory navigation without custom shell functions.
+
+From any directory:
+
+```text
+Alt-c
+```
+
+opens a fuzzy finder for child directories and `cd`s into the selected directory. This is useful from `~/Documents/code` when you remember a ticket prefix but not the exact worktree path.
+
+You can also fuzzy-complete directories:
+
+```sh
+cd **<Tab>
+```
+
 Reload tmux:
 
 ```sh
