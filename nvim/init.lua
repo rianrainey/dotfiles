@@ -40,7 +40,10 @@ vim.cmd([[
 
 -- Set up notify as the default notification system
 vim.opt.termguicolors = true
-vim.notify = require("notify")
+local ok, notify = pcall(require, "notify")
+if ok then
+  vim.notify = notify
+end
 
 -- Example keymap using notify
 vim.keymap.set("n", "<leader>vr", function()
