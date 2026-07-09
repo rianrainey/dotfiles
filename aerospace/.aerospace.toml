@@ -16,7 +16,7 @@ default-root-container-orientation = 'auto'
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 automatically-unhide-macos-hidden-apps = false
 
-persistent-workspaces = ['1', '2', '3', '4', '5', '6', '7', '8', '9', 'T', 'D', 'B', 'S', 'N', 'C', 'M', 'P']
+persistent-workspaces = ['1', '2', '3', '4', '5', '6', '7', '8', '9', 'T', 'D', 'B', 'S', 'N', 'C', 'E', 'M']
 on-mode-changed = []
 
 on-window-detected = [
@@ -33,10 +33,10 @@ on-window-detected = [
     { if.app-id = 'com.tinyspeck.slackmacgap', run = 'move-node-to-workspace S' },
     { if.app-id = 'notion.id', run = 'move-node-to-workspace N' },
     { if.app-id = 'com.google.Chrome.app.kjbdgfilnfhdoflbpgamdcdgpehopbep', run = 'move-node-to-workspace C' },
-    { if.app-id = 'com.readdle.SparkDesktop', run = 'move-node-to-workspace M' },
-    { if.app-id = 'com.spotify.client', run = 'move-node-to-workspace P' },
-    { if.app-id = 'com.apple.MobileSMS', run = 'move-node-to-workspace P' },
-    { if.app-id = 'com.openai.chat', run = 'move-node-to-workspace P' },
+    { if.app-id = 'com.readdle.SparkDesktop', run = 'move-node-to-workspace E' },
+    { if.app-id = 'com.spotify.client', run = 'move-node-to-workspace M' },
+    { if.app-id = 'com.apple.MobileSMS', run = 'move-node-to-workspace M' },
+    { if.app-id = 'com.openai.chat', run = 'move-node-to-workspace M' },
 
     # Utility windows that behave better floating.
     { if.app-id = 'com.1password.1password', run = 'layout floating' },
@@ -57,8 +57,8 @@ on-window-detected = [
     S = ['3', 'S27H85x', 'secondary', 'main'] # Slack
     N = ['3', 'S27H85x', 'secondary', 'main'] # Notion
     C = ['3', 'S27H85x', 'secondary', 'main'] # Calendar
-    M = ['3', 'S27H85x', 'secondary', 'main'] # Mail
-    P = ['3', 'S27H85x', 'secondary', 'main'] # Personal/media
+    E = ['3', 'S27H85x', 'secondary', 'main'] # Email
+    M = ['3', 'S27H85x', 'secondary', 'main'] # Music/media
 
 [key-mapping]
     preset = 'qwerty'
@@ -72,14 +72,17 @@ on-window-detected = [
     outer.right = 0
 
 [mode.main.binding]
-    # App launcher
+    # App workspaces. Hyper is right command via Karabiner.
     alt-enter = 'exec-and-forget /usr/bin/open -a Ghostty'
-    cmd-alt-ctrl-shift-b = 'exec-and-forget /usr/bin/open -a "Google Chrome"'
-    cmd-alt-ctrl-shift-t = 'exec-and-forget /usr/bin/open -a Ghostty'
-    cmd-alt-ctrl-shift-m = 'exec-and-forget /usr/bin/open -a Spotify'
-    cmd-alt-ctrl-shift-c = 'exec-and-forget /usr/bin/open -a Slack'
+    cmd-alt-ctrl-shift-t = ['exec-and-forget /usr/bin/open -a Ghostty', 'workspace T']
+    cmd-alt-ctrl-shift-d = ['exec-and-forget /usr/bin/open -a Cursor', 'workspace D']
+    cmd-alt-ctrl-shift-b = ['exec-and-forget /usr/bin/open -a "Google Chrome"', 'workspace B']
+    cmd-alt-ctrl-shift-s = ['exec-and-forget /usr/bin/open -a Slack', 'workspace S']
+    cmd-alt-ctrl-shift-n = ['exec-and-forget /usr/bin/open -a Notion', 'workspace N']
+    cmd-alt-ctrl-shift-c = ['exec-and-forget /usr/bin/open -a "Google Calendar"', 'workspace C']
+    cmd-alt-ctrl-shift-e = ['exec-and-forget /usr/bin/open -a "Spark Desktop"', 'workspace E']
+    cmd-alt-ctrl-shift-m = ['exec-and-forget /usr/bin/open -a Spotify', 'workspace M']
     cmd-alt-ctrl-shift-i = 'exec-and-forget /usr/bin/open -a Messages'
-    cmd-alt-ctrl-shift-e = 'exec-and-forget /usr/bin/open -a "Spark Desktop"'
     cmd-alt-ctrl-shift-f = 'layout floating tiling'
     cmd-alt-ctrl-shift-0 = 'balance-sizes'
 
@@ -88,34 +91,6 @@ on-window-detected = [
     alt-comma = 'layout accordion horizontal vertical'
     alt-f = 'fullscreen'
     alt-shift-f = 'layout floating tiling'
-
-    # App workspaces
-    alt-t = 'workspace T'
-    alt-d = 'workspace D'
-    alt-b = 'workspace B'
-    alt-s = 'workspace S'
-    alt-n = 'workspace N'
-    alt-c = 'workspace C'
-    alt-m = 'workspace M'
-    alt-p = 'workspace P'
-
-    alt-shift-t = 'move-node-to-workspace T'
-    alt-shift-d = 'move-node-to-workspace D'
-    alt-shift-b = 'move-node-to-workspace B'
-    alt-shift-s = 'move-node-to-workspace S'
-    alt-shift-n = 'move-node-to-workspace N'
-    alt-shift-c = 'move-node-to-workspace C'
-    alt-shift-m = 'move-node-to-workspace M'
-    alt-shift-p = 'move-node-to-workspace P'
-
-    alt-ctrl-t = ['move-node-to-workspace T', 'workspace T']
-    alt-ctrl-d = ['move-node-to-workspace D', 'workspace D']
-    alt-ctrl-b = ['move-node-to-workspace B', 'workspace B']
-    alt-ctrl-s = ['move-node-to-workspace S', 'workspace S']
-    alt-ctrl-n = ['move-node-to-workspace N', 'workspace N']
-    alt-ctrl-c = ['move-node-to-workspace C', 'workspace C']
-    alt-ctrl-m = ['move-node-to-workspace M', 'workspace M']
-    alt-ctrl-p = ['move-node-to-workspace P', 'workspace P']
 
     # Focus
     alt-h = 'focus left'
