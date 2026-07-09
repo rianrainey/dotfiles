@@ -1,4 +1,14 @@
-window-padding-x = 0
-window-padding-y = 0
+theme = Rose Pine Moon
+font-family = Hack Nerd Font
+font-size = 14
+
+background-opacity = 0.88
+background-opacity-cells = true
+background-blur = 20
+
+macos-titlebar-style = hidden
+window-padding-x = 10
+window-padding-y = 8,4
+
 keybind = shift+enter=text:\x0a
 link-url = true
