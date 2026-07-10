@@ -1,0 +1,4 @@
+interface:
+  display_name: "Jira Update Description Formatted"
+  short_description: "Format Jira descriptions with ADF"
+  default_prompt: "Use $jira-update-description-formatted to update a Jira ticket description with rendered headings, lists, links, and inline code."

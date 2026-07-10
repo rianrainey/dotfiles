@@ -1,2 +1,6 @@
 .gitignore
 .env
+.codex/
+!agents/
+!agents/.codex/
+!agents/.codex/**

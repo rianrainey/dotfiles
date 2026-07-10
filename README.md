@@ -97,6 +97,7 @@ stow -n -v -t "$HOME" git
 stow -n -v -t "$HOME" ghostty
 stow -n -v -t "$HOME" tmux-sessionizer
 stow -n -v -t "$HOME" aerospace
+stow -n -v -t "$HOME" agents
 ```
 
 If the dry run looks right, run without `-n`:
@@ -108,6 +109,7 @@ stow -v -t "$HOME" git
 stow -v -t "$HOME" ghostty
 stow -v -t "$HOME" tmux-sessionizer
 stow -v -t "$HOME" aerospace
+stow -v -t "$HOME" agents
 ```
 
 For Neovim, target `~/.config/nvim`:
@@ -136,6 +138,25 @@ stow -v -t "$HOME" zshrc
 | `tmux-sessionizer` | `~/.config/tmux-sessionizer`, `~/.local/bin` | Project/session picker |
 | `aerospace` | `~/.aerospace.toml` | AeroSpace workspace, monitor, and app routing |
 | `nvim` | `~/.config/nvim` | Neovim config |
+| `agents` | `~/.codex/skills` | Personal Codex skills, excluding bundled system skills |
+
+## Codex Skills
+
+Personal Codex skills live in `agents/.codex/skills` so they can be version controlled with the rest of these dotfiles. Codex-bundled `.system` skills are intentionally excluded because Codex provides them itself.
+
+Preview the links before installing:
+
+```sh
+stow -n -v -t "$HOME" agents
+```
+
+Install them:
+
+```sh
+stow -v -t "$HOME" agents
+```
+
+On a machine that already has real files in `~/.codex/skills`, the dry run will report conflicts. Keep the versioned copy as the source of truth and convert those files to symlinks only after reviewing that migration separately.
 
 ## Reload Commands
 
