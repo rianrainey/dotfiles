@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH"
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -75,13 +75,11 @@ plugins=(
   aliases
   colored-man-pages
   dotenv
-  fzf
   git
+  autojump
   tmux
 )
 ZSH_DOTENV_PROMPT=false # dotenv plugin
-FZF_ALT_C_OPTS="--walker-skip .git,node_modules,target,tmp,log"
-FZF_COMPLETION_DIR_OPTS="--walker dir,follow,hidden --walker-skip .git,node_modules,target,tmp,log"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -156,3 +154,18 @@ function mkcd() {
 # Vimeo specific
 export PATH="/Applications/Postgres.app/Contents/Versions/16/bin:$PATH"
 #export PORT=3100
+
+
+# Shell UX
+if command -v fzf >/dev/null 2>&1; then
+  eval "$(fzf --zsh)"
+  bindkey "^F" fzf-cd-widget
+fi
+
+source "/opt/homebrew/opt/fzf-tab/share/fzf-tab/fzf-tab.zsh"
+
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# mise shims for tools pinned in .tool-versions
+export PATH="$HOME/.local/share/mise/shims:$PATH"
