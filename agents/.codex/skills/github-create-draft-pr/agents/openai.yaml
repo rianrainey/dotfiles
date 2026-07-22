@@ -1,4 +1,0 @@
-interface:
-  display_name: "GitHub Draft PR"
-  short_description: "Create a draft PR with a simple business-first review doc"
-  default_prompt: "Use $github-create-draft-pr to run a security pass, open a draft PR, and create a plain-language review doc with business flow changes first."

@@ -1,4 +1,0 @@
-interface:
-  display_name: "PR Comment Drafter"
-  short_description: "Draft humble code review comments"
-  default_prompt: "Use $pr-comment-drafter to draft a humble junior-engineer style PR comment for this finding."

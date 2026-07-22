@@ -1,4 +1,0 @@
-interface:
-  display_name: "Repo Teacher"
-  short_description: "Adaptive repo teaching and onboarding"
-  default_prompt: "Use $repo-teacher to teach me this repository at my current level and help me grow toward principal-level mastery."

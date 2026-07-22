@@ -1,4 +1,0 @@
-interface:
-  display_name: "Jira Worktree Kickoff"
-  short_description: "Plan and create Jira worktrees"
-  default_prompt: "Use $jira-worktree-kickoff to fetch a Jira issue URL, make a plan, and create the worktree."

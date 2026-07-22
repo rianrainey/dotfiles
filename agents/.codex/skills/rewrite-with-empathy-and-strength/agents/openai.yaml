@@ -1,4 +1,0 @@
-interface:
-  display_name: "Empathy With Backbone"
-  short_description: "Rewrite warm, clear, and strong messages"
-  default_prompt: "Use $rewrite-with-empathy-and-strength to rewrite this raw message so it sounds warm, best-intent, intelligent, and assertive without becoming soft or apologetic."

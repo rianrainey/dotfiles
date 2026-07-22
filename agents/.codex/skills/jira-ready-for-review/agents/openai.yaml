@@ -1,4 +1,0 @@
-interface:
-  display_name: "Jira Ready For Review"
-  short_description: "Fetch Jira Ready for Review tickets"
-  default_prompt: "Use $jira-ready-for-review to fetch the Jira tickets currently in a board's Ready for Review column."
