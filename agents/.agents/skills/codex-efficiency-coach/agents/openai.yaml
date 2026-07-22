@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codex Efficiency Coach"
+  short_description: "Review Codex usage, trends, and workflow efficiency"
+  default_prompt: "Use $codex-efficiency-coach to analyze my last week of Codex usage with token trends, concurrency, charts, and concrete efficiency coaching."

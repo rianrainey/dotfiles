@@ -1,5 +1,6 @@
 .gitignore
 .env
+.DS_Store
 .codex/
 !agents/
 !agents/.codex/

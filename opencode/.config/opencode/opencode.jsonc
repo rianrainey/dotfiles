@@ -1,0 +1,36 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  // Default model — free tier avoids OpenAI quota failures
+  "model": "opencode/deepseek-v4-flash-free",
+  // Lightweight model for title generation, summaries, etc.
+  "small_model": "opencode/north-mini-code-free",
+  // Per-agent tuning
+  "agent": {
+    "build": {
+      "model": "opencode/deepseek-v4-flash-free",
+      "prompt": "Tool discipline: prefer edit over write, read/grep/glob over bash (keep bash under 10%), and batch parallel reads. Start each session with todowrite."
+    },
+    "explore": {
+      "model": "opencode/deepseek-v4-flash-free"
+    },
+    "plan": {
+      "model": "opencode/deepseek-v4-flash-free"
+    }
+  },
+  "permission": {
+    "external_directory": {
+      "~/Documents/code/worktrees/**": "allow",
+      "~/obsidian/work-brain/**": "allow",
+      "~/.treehouse/**": "allow",
+      "~/.config/opencode/**": "allow"
+    }
+  },
+  "mcp": {
+    "atlassian": {
+      "type": "remote",
+      "url": "https://mcp.atlassian.com/v1/mcp",
+      "enabled": true,
+      "oauth": {}
+    }
+  }
+}

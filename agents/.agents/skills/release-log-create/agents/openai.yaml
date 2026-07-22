@@ -1,0 +1,4 @@
+interface:
+  display_name: "Release Log Create"
+  short_description: "Create stakeholder release digests"
+  default_prompt: "Use $release-log-create to draft an external-facing release digest for the last 4 weeks in the script_drop repo."

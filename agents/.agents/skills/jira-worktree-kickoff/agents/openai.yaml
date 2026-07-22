@@ -1,0 +1,4 @@
+interface:
+  display_name: "Jira Treehouse Kickoff"
+  short_description: "Plan and start a leased Jira workspace"
+  default_prompt: "Use $jira-worktree-kickoff to plan a Jira ticket, acquire a Treehouse lease, and start ScriptDrop work."
