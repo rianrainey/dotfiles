@@ -70,14 +70,6 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
--- Enable auto-formatting on save
-vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = "*",
-  callback = function(args)
-    vim.lsp.buf.format({ bufnr = args.buf })
-  end,
-})
-
 -- Which Key
 require("which-key").setup({
   preset = "modern", -- Use "classic", "modern", or "helix"
