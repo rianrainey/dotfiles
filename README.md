@@ -138,11 +138,11 @@ stow -v -t "$HOME" zshrc
 | `tmux-sessionizer` | `~/.config/tmux-sessionizer`, `~/.local/bin` | Project/session picker |
 | `aerospace` | `~/.aerospace.toml` | AeroSpace workspace, monitor, and app routing |
 | `nvim` | `~/.config/nvim` | Neovim config |
-| `agents` | `~/.codex/skills` | Personal Codex skills, excluding bundled system skills |
+| `agents` | `~/.agents/skills` | Personal Codex skills |
 
 ## Codex Skills
 
-Personal Codex skills live in `agents/.codex/skills` so they can be version controlled with the rest of these dotfiles. Codex-bundled `.system` skills are intentionally excluded because Codex provides them itself.
+Personal Codex skills live in `agents/.agents/skills` so they can be version controlled with the rest of these dotfiles. Stow links each complete skill directory into `~/.agents/skills`, which is Codex's user-scoped discovery location. Codex-bundled system skills remain managed by Codex itself.
 
 Preview the links before installing:
 
@@ -156,7 +156,7 @@ Install them:
 stow -v -t "$HOME" agents
 ```
 
-On a machine that already has real files in `~/.codex/skills`, the dry run will report conflicts. Keep the versioned copy as the source of truth and convert those files to symlinks only after reviewing that migration separately.
+On a machine that already has a skill with the same name in `~/.agents/skills`, the dry run will report a conflict. Keep the versioned copy as the source of truth and convert the existing skill directory to a directory-level symlink only after reviewing that migration separately.
 
 ## Reload Commands
 
