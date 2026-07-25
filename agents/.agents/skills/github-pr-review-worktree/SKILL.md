@@ -72,7 +72,8 @@ Create a fresh review worktree for a GitHub pull request. The input may be eithe
    - Default location: the root of the newly created or reused review worktree
    - The markdown review must begin near the top of the document with a Markdown link to the original PR URL
    - Use Markdown headings and concise sections so the review is easy to skim in an editor
-11. Always include paste-ready suggested PR comments.
+11. Always include paste-ready suggested PR comments drafted with the pr-comment-drafter skill.
+   - Load the `pr-comment-drafter` skill and follow its voice, workflow, and comment shape.
    - Keep this section even in faster reviews.
    - Write comments so they can be copied directly into GitHub review comments with minimal or no editing.
    - For normal-sized PRs, include at least 3 suggested PR comments.
@@ -84,7 +85,7 @@ Create a fresh review worktree for a GitHub pull request. The input may be eithe
    - `Pull Request`: a link to the source PR URL
    - `Executive Summary`: what changed and the overall risk profile
    - `Top Findings`: ordered from high severity to low severity, each with file references and reasoning
-   - `Suggested PR Comments`: copy-paste-ready review comments written in a warm, empathetic, coaching-oriented tone that still communicates strong engineering judgment
+   - `Suggested PR Comments`: copy-paste-ready review comments drafted using the pr-comment-drafter skill — humble, curious, evidence-backed, and easy to post
    - `Expert Recommendations`: Elixir, Phoenix, Ecto, or OTP guidance in the spirit of senior community maintainers
    - `Teachable Moments`: short explanations of Elixir or Phoenix concepts that appear in the review and may be unfamiliar to a Rails-oriented engineer
    - `Testing Gaps`: missing or weak coverage that limits confidence
@@ -119,11 +120,7 @@ Create a fresh review worktree for a GitHub pull request. The input may be eithe
 - Prefer clearer wording for potentially unfamiliar review terms.
   - If using a word like `transient`, immediately explain it in plain language, for example: “temporary failures like timeout, rate limit `429`, or Slack `503`.”
   - If using a response-class phrase like `non-200`, prefer the concrete statuses first, then optionally explain the broader category.
-- For each suggested PR comment, make it sound like a thoughtful staff engineer:
-  - warm and respectful
-  - clear about risk and intent
-  - helpful in explaining why the change matters
-  - comfortable teaching or clarifying esoteric code paths without sounding condescending
+- Draft all suggested PR comments using the `pr-comment-drafter` skill. This is the single source of truth for comment tone and structure. The skill's voice (humble junior engineer, curious, specific, actionable) replaces any ad hoc tone guidance in this document.
 - When a tricky concept, invariant, concurrency edge case, or framework-specific nuance is involved, include at least one suggested comment that explains the subtlety in plain language so it can help the PR author and future readers.
 - Preserve concrete, evidence-backed findings in the style of:
   - clear severity label
@@ -136,7 +133,7 @@ Create a fresh review worktree for a GitHub pull request. The input may be eithe
   - Spend depth where the risk is concentrated, not where churn is merely visible.
 - Keep the teaching lightweight and practical.
   - Do not turn the review into a tutorial.
-  - Add short “what this means” explanations only where they help the user understand or act on the review.
+  - Add short "what this means" explanations only where they help the user understand or act on the review.
   - Prefer one or two sentences of explanation over jargon-heavy deep dives unless the user asks for more.
   - In `Teachable Moments`, assume the reader may be a true beginner for the Elixir concept being referenced, even if they are a strong application engineer overall.
   - Prefer tiny runnable code snippets over abstract explanations when teaching Elixir behavior.
@@ -144,10 +141,6 @@ Create a fresh review worktree for a GitHub pull request. The input may be eithe
   - Use snippets to answer the exact confusion, for example showing that `Map.put/3` on a struct keeps the struct type when the key already exists.
   - Keep teachable examples short enough to skim in under a minute.
   - If a teachable moment feels dense, rewrite it in plainer language first, then add one concrete example instead of adding more theory.
-- In suggested PR comments, optimize for language the user can confidently post.
-  - Keep the wording smart but natural.
-  - Avoid phrases the user would struggle to defend or explain if the author asks a follow-up question.
-  - Favor direct, concrete wording over abstract or overly polished language.
 
 ## Notes
 
@@ -167,3 +160,4 @@ Create a fresh review worktree for a GitHub pull request. The input may be eithe
   - a one-line note on why that placement is the best spot
 - Do not duplicate the full markdown review in the terminal response unless the user asks for it there too.
 - When possible, include teachable moments near the relevant finding instead of only as a separate section, so the explanation is attached to the concrete code concern.
+- This skill depends on the `pr-comment-drafter` skill for PR comment tone and structure. Load it alongside this skill whenever drafting suggested PR comments.
