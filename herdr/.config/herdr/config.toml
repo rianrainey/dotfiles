@@ -17,6 +17,9 @@ reload_config = "prefix+r"
 # Detach (tmux standard: prefix+d, with Ctrl+d prefix that's Ctrl+d then d)
 detach = "prefix+d"
 
+# New workspace (tmux: prefix+S — new session)
+new_workspace = "prefix+shift+s"
+
 # Rename workspace (tmux: prefix+$ — rename session)
 rename_workspace = "prefix+$"
 
@@ -109,6 +112,9 @@ pane_gaps = true
 
 # Confirm before closing
 confirm_close = true
+
+# Prompt for workspace name on creation (like tmux new-session prompt)
+prompt_new_workspace_name = true
 
 # Agent ordering
 agent_panel_sort = "spaces"
