@@ -16,8 +16,8 @@ Create a fresh review worktree for a GitHub pull request. The input may be eithe
 
 ## Fixed Defaults
 
-- Repo path: `~/Documents/code/script_drop`
-- Worktree root: `~/Documents/code/worktree_sd`
+- Repo path: `~/Documents/code/goodrx/scriptdrop_co/scriptdrop_repo/script_drop`
+- Worktree root: `~/Documents/code/worktrees`
 
 ## Workflow
 
@@ -40,7 +40,7 @@ Create a fresh review worktree for a GitHub pull request. The input may be eithe
    - parses the PR number from the URL
    - fetches PR metadata with `gh pr view`
    - creates a safe local review branch named `pr-<number>-<normalized-title>`
-   - creates the worktree at `~/Documents/code/worktree_sd/<same-slug>`
+   - creates the worktree at `~/Documents/code/worktrees/<same-slug>`
 4. Reuse safely.
    - Do not overwrite or repurpose an existing branch or worktree that appears to belong to a different PR or different review target.
    - If an existing branch or worktree is ambiguous, stop and ask.

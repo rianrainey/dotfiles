@@ -191,12 +191,12 @@ def main():
     parser.add_argument("pr_url", help="GitHub pull request URL")
     parser.add_argument(
         "--repo-path",
-        default="~/Documents/code/script_drop",
+        default="~/Documents/code/goodrx/scriptdrop_co/scriptdrop_repo/script_drop",
         help="Repository root containing the origin remote",
     )
     parser.add_argument(
         "--worktree-root",
-        default="~/Documents/code/worktree_sd",
+        default="~/Documents/code/worktrees",
         help="Directory where review worktrees are created",
     )
     args = parser.parse_args()
