@@ -97,6 +97,7 @@ stow -n -v -t "$HOME" git
 stow -n -v -t "$HOME" ghostty
 stow -n -v -t "$HOME" tmux-sessionizer
 stow -n -v -t "$HOME" aerospace
+stow -n -v -t "$HOME" karabiner
 stow -n -v -t "$HOME" agents
 ```
 
@@ -109,6 +110,7 @@ stow -v -t "$HOME" git
 stow -v -t "$HOME" ghostty
 stow -v -t "$HOME" tmux-sessionizer
 stow -v -t "$HOME" aerospace
+stow -v -t "$HOME" karabiner
 stow -v -t "$HOME" agents
 ```
 
@@ -137,6 +139,7 @@ stow -v -t "$HOME" zshrc
 | `ghostty` | `~/.config/ghostty/config` | Ghostty terminal config |
 | `tmux-sessionizer` | `~/.config/tmux-sessionizer`, `~/.local/bin` | Project/session picker |
 | `aerospace` | `~/.aerospace.toml` | AeroSpace workspace, monitor, and app routing |
+| `karabiner` | `~/.config/karabiner/karabiner.json` | Karabiner-Elements key remapping |
 | `nvim` | `~/.config/nvim` | Neovim config |
 | `agents` | `~/.agents/skills` | Personal Codex skills |
 
