@@ -86,6 +86,7 @@ For changes that need test data (new columns, new tables, new states):
   - `grep -r "seed" --include "*.exs" --include "*.rb" --include "*.py"`
   - Check `priv/repo/seeds.exs`, `db/seeds/`, `test/factories/`, `spec/factories/`
   - Check `./script/dev-*` wrappers for reset/seed commands
+- **Always run the project's `dev-setup` script first** before manually inserting records. It creates the DB, runs migrations, and seeds — giving you a clean baseline. If you skip this and jump straight into `iex`/SQL, your manual records will be wiped the moment you need to reset the DB.
 - Use the repo's existing factory approach (ExMachina, FactoryBot, etc.) to insert records.
 - If no factory exists and the change is small, write an ad-hoc insert in the `iex` or `rails console` to produce the needed state.
 - Never commit seeds unless the repo has a dedicated seed file convention.

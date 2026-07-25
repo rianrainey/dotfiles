@@ -68,6 +68,33 @@ docker exec -e MIX_ENV=dev -w /workspace <container> mix ecto.create
 docker exec -e MIX_ENV=dev -w /workspace <container> mix ecto.migrate
 ```
 
+## Dev Setup: Always Run First
+
+Before jumping into `iex`, SQL, or ad-hoc scripts to create test data, **always run the dev-setup script first**:
+
+```bash
+./script/dev-setup
+```
+
+This handles the full cycle: DB creation → migration → seeding. If you skip this and create records manually, they'll be lost the moment you need to reset the DB (`ecto.drop` + `ecto.create` + `ecto.migrate`), forcing you to recreate everything.
+
+**Lesson:** run `dev-setup` before manually inserting records, not after. You want a clean seeded baseline, then layer your ticket-specific data on top.
+
+## Commit Hooks: Fast Path for Innocuous Changes
+
+ScriptDrop git hooks can be expensive because they may rebuild/start Docker, compile Elixir apps, build assets, run formatting checks, run Credo, and run tests. For clearly low-risk changes, prefer the fast commit path and let CI be the full verification gate.
+
+Use `git commit --no-verify` only after inspecting `git diff --cached` and confirming the staged files are innocuous. Safe examples include:
+
+- Docs-only edits
+- Screenshot/test-artifact updates outside tracked source
+- Comments or test-name changes
+- One-line static UI copy/casing changes with no control-flow or data-shape impact
+
+Do **not** skip hooks for logic changes, migrations, dependency changes, config/build changes, generated files, security-sensitive code, or changes touching tests in a way that affects behavior.
+
+When using `--no-verify`, mention it explicitly in the session summary and rely on CI as the final verification gate.
+
 ## Running the Seeds
 
 The seeds create pharmacies, users, and scheduled delivery rules needed for most development:
