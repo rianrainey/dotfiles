@@ -4,24 +4,15 @@
             "complex_modifications": {
                 "rules": [
                     {
-                        "description": "TEST 1: right_command alone detected",
+                        "description": "TEST: right_command to cmd+ctrl",
                         "manipulators": [
                             {
                                 "type": "basic",
                                 "from": { "key_code": "right_command" },
-                                "to_if_alone": [
-                                    { "shell_command": "touch /tmp/rcmd-alone.txt" }
+                                "to": [
+                                    { "key_code": "left_command" },
+                                    { "key_code": "left_control" }
                                 ]
-                            }
-                        ]
-                    },
-                    {
-                        "description": "TEST 2: right_command → left_control only",
-                        "manipulators": [
-                            {
-                                "type": "basic",
-                                "from": { "key_code": "right_command" },
-                                "to": [ { "key_code": "left_control" } ]
                             }
                         ]
                     },
