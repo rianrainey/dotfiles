@@ -1,85 +1,47 @@
 {
-  "global": {
-    "check_for_updates_on_startup": true,
-    "show_in_menu_bar": true,
-    "show_profile_name_in_menu_bar": false
-  },
-  "profiles": [
-    {
-      "name": "Default profile",
-      "selected": true,
-      "simple_modifications": [
+    "profiles": [
         {
-          "from": {
-            "key_code": "caps_lock"
-          },
-          "to": [
-            {
-              "key_code": "left_control"
-            }
-          ]
-        }
-      ],
-      "complex_modifications": {
-        "rules": [
-            {
-                "description": "Right Command to Hyper",
-                "manipulators": [
+            "complex_modifications": {
+                "rules": [
                     {
-                        "type": "basic",
-                        "from": {
-                            "key_code": "right_command",
-                            "modifiers": {
-                                "optional": [
-                                    "any"
-                                ]
-                            }
-                        },
-                        "to": [
+                        "description": "Right Command to Hyper",
+                        "manipulators": [
                             {
-                                "key_code": "left_shift",
-                                "modifiers": [
-                                    "left_control",
-                                    "left_option",
-                                    "left_command"
-                                ]
+                                "from": {
+                                    "key_code": "right_command",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_shift",
+                                        "modifiers": ["left_control", "left_option", "left_command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Send Play/Pause (F8) to Spotify",
+                        "manipulators": [
+                            {
+                                "from": { "consumer_key_code": "play_or_pause" },
+                                "to": [{ "shell_command": "osascript -e 'tell application \"Spotify\" to playpause'" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": { "key_code": "f8" },
+                                "to": [{ "shell_command": "osascript -e 'tell application \"Spotify\" to playpause'" }],
+                                "type": "basic"
                             }
                         ]
                     }
                 ]
             },
-            {
-                "description": "Send Play/Pause (F8) to Spotify",
-                "manipulators": [
-                    {
-                        "from": {
-                            "consumer_key_code": "play_or_pause"
-                        },
-                        "to": [
-                            {
-                                "shell_command": "osascript -e 'tell application \"Spotify\" to playpause'"
-                            }
-                        ],
-                        "type": "basic"
-                    },
-                    {
-                        "from": {
-                            "key_code": "f8"
-                        },
-                        "to": [
-                            {
-                                "shell_command": "osascript -e 'tell application \"Spotify\" to playpause'"
-                            }
-                        ],
-                        "type": "basic"
-                    }
-                ]
-            }
-        ]
-      },
-      "virtual_hid_keyboard": {
-        "keyboard_type_v2": "ansi"
-      }
-    }
-  ]
+            "name": "Default profile",
+            "selected": true,
+            "simple_modifications": [],
+            "virtual_hid_keyboard": { "keyboard_type_v2": "ansi" }
+        }
+    ]
 }
