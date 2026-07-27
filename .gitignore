@@ -5,3 +5,7 @@
 !agents/
 !agents/.codex/
 !agents/.codex/**
+
+# Karabiner-Elements auto-generated
+karabiner/.config/karabiner/assets/
+karabiner/.config/karabiner/automatic_backups/
