@@ -4,14 +4,15 @@
             "complex_modifications": {
                 "rules": [
                     {
-                        "description": "TEST: right_command to cmd+ctrl",
+                        "description": "TEST: right_command to cmd+ctrl+opt",
                         "manipulators": [
                             {
                                 "type": "basic",
                                 "from": { "key_code": "right_command" },
                                 "to": [
                                     { "key_code": "left_command" },
-                                    { "key_code": "left_control" }
+                                    { "key_code": "left_control" },
+                                    { "key_code": "left_option" }
                                 ]
                             }
                         ]
