@@ -4,7 +4,7 @@
             "complex_modifications": {
                 "rules": [
                     {
-                        "description": "Right Command → Hyper (all 4 modifiers)",
+                        "description": "Right Command → Hyper (press all 4 modifier keys)",
                         "manipulators": [
                             {
                                 "type": "basic",
@@ -15,15 +15,16 @@
                                     }
                                 },
                                 "to": [
-                                    {
-                                        "modifiers": ["left_command", "left_control", "left_option", "left_shift"]
-                                    }
+                                    { "key_code": "left_command" },
+                                    { "key_code": "left_control" },
+                                    { "key_code": "left_option" },
+                                    { "key_code": "left_shift" }
                                 ]
                             }
                         ]
                     },
                     {
-                        "description": "TEST: Hyper+B writes a file",
+                        "description": "TEST: Hyper+B checkpoint",
                         "manipulators": [
                             {
                                 "type": "basic",
@@ -34,9 +35,7 @@
                                     }
                                 },
                                 "to": [
-                                    {
-                                        "shell_command": "touch /tmp/hyper-b-works.txt"
-                                    }
+                                    { "shell_command": "touch /tmp/hyper-b-check.txt" }
                                 ]
                             }
                         ]
