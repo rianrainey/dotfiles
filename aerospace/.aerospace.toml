@@ -46,21 +46,25 @@ on-window-detected = [
 ]
 
 [workspace-to-monitor-force-assignment]
-    # Laptop/dev
-    T = ['built-in', 'main']          # Terminal
-    D = ['built-in', 'main']          # Code
-    O = ['built-in', 'main']          # Obsidian
+    # Terminal on the Dell; falls back to main (built-in) when the Dell is gone
+    T = ['DELL S2725DSM', 'dell', 'main'] # Terminal
 
-    # Top/left external: DELL S2725DSM. macOS may sometimes report a blank
-    # display name for this monitor, so prefer AeroSpace's monitor index first.
-    B = ['1', 'DELL S2725DSM', 'dell', 'secondary', 'main'] # Browser
+    # Code stays on the built-in Retina display
+    D = ['built-in', 'main']              # Code
 
-    # Right external: S27H85x
-    S = ['3', 'S27H85x', 'secondary', 'main'] # Slack
-    N = ['3', 'S27H85x', 'secondary', 'main'] # Notion
-    C = ['3', 'S27H85x', 'secondary', 'main'] # Calendar
-    E = ['3', 'S27H85x', 'secondary', 'main'] # Email
-    M = ['3', 'S27H85x', 'secondary', 'main'] # Music/media
+    # Obsidian on the Dell
+    O = ['DELL S2725DSM', 'dell', 'main'] # Obsidian
+
+    # Browser on the Dell
+    B = ['DELL S2725DSM', 'dell', 'main'] # Browser
+
+    # External display no longer attached, so Slack/Notion/Calendar/Email/Music
+    # route to the Dell instead of falling back to built-in.
+    S = ['DELL S2725DSM', 'dell', 'main'] # Slack
+    N = ['DELL S2725DSM', 'dell', 'main'] # Notion
+    C = ['DELL S2725DSM', 'dell', 'main'] # Calendar
+    E = ['DELL S2725DSM', 'dell', 'main'] # Email
+    M = ['DELL S2725DSM', 'dell', 'main'] # Music/media
 
 [key-mapping]
     preset = 'qwerty'
@@ -160,7 +164,6 @@ on-window-detected = [
     alt-ctrl-l = 'focus-monitor right'
     alt-ctrl-shift-h = 'move-node-to-monitor left'
     alt-ctrl-shift-l = 'move-node-to-monitor right'
-    cmd-alt-ctrl-shift-h = 'move-node-to-monitor left'
     cmd-alt-ctrl-shift-l = 'move-node-to-monitor right'
     cmd-alt-ctrl-shift-1 = 'move-node-to-monitor 1'
     cmd-alt-ctrl-shift-2 = 'move-node-to-monitor 2'
